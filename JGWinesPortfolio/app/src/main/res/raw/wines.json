@@ -46,6 +46,7 @@
 		"Aida":{
 			"label_image": "aida_label",
 			"region_image": "",
+			"type": "red",
 			"title": "Aida, Montepulciano d'Abruzzo, DOC, 2013",
 			"vineyard": "Marchesi de' Cordano",
 			"short_desc": "Founded in 2003, Francesco D'Onofrio's winery has about 124 acres of vineyards in Loreto Aprutino and Ripa Teatina in the province of Chieti. Montepulciano represents the main vine variety of Abruzzo making full bodied and soft red wines with velvety tannins.",
@@ -74,6 +75,7 @@
 		"Micarone":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Micarone, Montepulciano d'Abruzzo, DOC, 2013",
 			"vineyard": "Marchesi de Cordano",
 			"short_desc": "Founded in 2003, Francesco D'Onofrio's winery has about 123 acres of vineyards in Loreto Aprutino and Ripa Teatina in the province of Chieti.",
@@ -102,6 +104,7 @@
 		"Mutro'":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Mutro', Rosso Superiore, Melissa, DOC, 2008",
 			"vineyard": "Cantina Val di Neto srl",
 			"short_desc": "This wine comes from the dry, rugged Central Ionian coast of Calabria, the 'toe' of the Italian 'boot.' Gaglioppo and Greco Nero are the major two grape varietals grown here that stem from Greek origins. Val di Neto was started in 1999 and their 75 acre vineyard is in the production zones of Melissa DOC and Val di Neto IGT.",
@@ -130,6 +133,7 @@
 		"Adesso":{
 		    "label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Adesso, Cagnina Dolce, Romagna, DOP, 2015",
 			"vineyard": "Nespoli",
 			"short_desc": "Nobody knows where the name Cagnina comes from, but this wine has been made since the 13th century exlusively in the Emilia Romagna Region, just south of Venice, Italy.",
@@ -158,6 +162,7 @@
 		"Sangiovese":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Sangiovese, Rubicone, IGP, 2015",
 			"vineyard": "Agrintesa",
 			"short_desc": "This Sangiovese comes from Cantine Intesa, a member of a large group of fruit, vegetable and grape growers. This cooperative, Agrintesa, is located in an important agricultural area in the eastern part of Emilia-Romagna.",
@@ -186,6 +191,7 @@
 		"Baciami":{
 			"label_image": "baciami_label",
 			"region_image": "baciami_region_image",
+			"type": "white",
 			"title": "Baciami, Albana, Dolce, Romagna, DOCG, 2015",
 			"vineyard": "Agrintesa",
 			"short_desc": "This Albana comes from Cantine Intesa, a member of a large group of fruit, vegetable and grape growers. This cooperative, Agrintesa, is located in an important agricultural area in the eastern part of Emilia-Romagna.",
@@ -214,6 +220,7 @@
 		"Subito":{
 			"label_image": "",
 			"region_image": "",
+			"type": "rose",
 			"title": "Subito, Sangiovese Rubicone, IGP, 2014, Rosato Dolce",
 			"vineyard": "Agrintesa",
 			"short_desc": "This Rosato comes from Cantine Intesa, a member of a large group of fruit, vegetable and grape growers. This cooperative, Agrintesa, is located in an important agricultural area in the eastern part of Emilia-Romagna.",
@@ -242,6 +249,7 @@
 		"Pinto Grigio":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Pinot Grigio, Collio, DOC, 2015",
 			"vineyard": "Ronco dei Pini di Novello G. & C. snc",
 			"short_desc": "Ronco dei Pini’s 35 acres of vineyards are located in the rolling hills of Friuli in the north-eastern part of Italy, bordering Slovania. More precisely the winery lies nestled in the hills between Prepotto and Spessa di Cividale with most of the grapes grown in the DOC area of Collio Goriziano. Ronco dei Pini is owned by Claudio and Giuseppe Novello, who took it over in 1997.",
@@ -270,6 +278,7 @@
 		"Lugana Limne":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Lugana Limne, DOC, 2015",
 			"vineyard": "Tenuta Roveglia",
 			"short_desc": "Born in the thirties, Tenuta Roveglia boasts the most extensive vineyard in the area of Lugana just south of Lake Garda. Tenuta Roveglia has 175 acres of vineyards within the more than 245 acres of the estate.",
@@ -298,6 +307,7 @@
 		"Pecorino":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Pecorino, Terre di Chieti, IGT, 2015",
 			"vineyard": "Accattoli s.r.l",
 			"short_desc": "Pecora is the Italian word for sheep, and the name of the grape reflects the close ties between agriculture and sheep farming since the grapes were grown on the hills where shepherds moved their herds in the summer. The early harvest makes for a wine with a firm structure and a deliciously fresh finish. ",
@@ -326,6 +336,7 @@
 		"Verdicchio":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Verdicchio di Matelica",
 			"vineyard": "Accattoli s.r.l",
 			"short_desc": "Verdicchio is a grape that can be viewed as symbol for the Marche.  It is believed to be native to this region, and was mentioned in documents as early as the 14th century. Of the two appellations, Jesi and Matelica, we prefer the latter, which produces a firmer more aromatic wine.  The Accattoli winery nestled in the hills bordering Umbria, made this fabulous wine.",
@@ -354,6 +365,7 @@
 		"Rosso":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Rosso del Monte, IGT, 2013",
 			"vineyard": "Accattoli s.r.l",
 			"short_desc": "In the hills of Marche, bordering Umbria is the Accattoli winery where Anastasia Accattoli creates several traditional but also innovative wines.",
@@ -382,6 +394,7 @@
 		"Langhe":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Langhe, Dolcetto, DOC, 2014",
 			"vineyard": "Azienda Agricola Ribote di Porro Bruno",
 			"short_desc": "In 1980 Bruno Porro and his wife Irma started a small 24-acre winery, called Ribote after an old beloved tree in front of an ancient stone farmhouse on the property. The estate lies in Piedmont just east of the city of Alba in the heart of the Langhe region with its gently rolling hills. All the vineyards face south and are located at an altitude of 1100 to 1300 feet.  Ribote focuses almost entirely on Dolcetto, and all wines carry the Dogliani appellation (one of seven officially designated DOC zones). ",
@@ -410,6 +423,7 @@
 		"Baby Barb":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Baby Barb', Barbera D'Asti, DOCG, 2012",
 			"vineyard": "La Mondianese",
 			"short_desc": "In the heart of Piemont lies this well appointed 6-acre winery, surrounded by vineyards made up of some of the best growing areas in Piedmont. La Mondianese is located in the province of Asti in the hilly area of Montemagno, loosely translated as 'big hill' and Castagnole Monferrato.",
@@ -438,6 +452,7 @@
 		"Barbera":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Barbera D'Asti Superiore, DOC, 2010",
 			"vineyard": "La Mondianese",
 			"short_desc": "In the heart of Piemont lies this well appointed 6-acre winery, surrounded by vineyards made up of some of the best growing areas in Piedmont.  La Mondianese is located in the province of Asti in the hilly area of Montemagno, loosely translated as 'big hill' and Castagnole Monferrato.",
@@ -466,6 +481,7 @@
 		"Grignolino":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Grignolino D'Asti, DOC, 2014",
 			"vineyard": "La Mondianese",
 			"short_desc": "In the heart of Piemont lies this well appointed 6-acre winery, surrounded by vineyards made up of some of the best growing areas in Piedmont.  La Mondianese is located in the province of Asti in the hilly area of Montemagno, loosely translated as 'big hill' and Castagnole Monferrato.",
@@ -494,6 +510,7 @@
 		"Ruche":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Ruche De Castagnole Monferrato, DOCG, 2014",
 			"vineyard": "La Mondianese",
 			"short_desc": "In the heart of Piemont lies this well appointed 6-acre winery, surrounded by vineyards made up of some of the best growing areas in Piedmont.  La Mondianese is located in the province of Asti in the hilly area of Montemagno, loosely translated as 'big hill' and Castagnole Monferrato.",
@@ -522,6 +539,7 @@
 		"Chiaro":{
 			"label_image": "",
 			"region_image": "",
+			"type": "rose",
 			"title": "Chiaro di Luna, Rose, Langhe DOC, 2015",
 			"vineyard": "Azienda Agricola Valdinera",
 			"short_desc": "Located in the heart of Piedmont near the city of Alba, the Valdinera estate has been farmed by the Careglio family for four generations.  At present, it consists of about 41 acres of which 22 are vineyards. Currently, 'Beppe' Careglio grows Arneis, Barbera, Favorita, and, of course, Nebbiolo.",
@@ -550,6 +568,7 @@
 		"Roero":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Roero Arneis, DOCG, 2014",
 			"vineyard": "Azienda Agricola Valdinera",
 			"short_desc": "Located in the heart of Piedmont near the city of Alba, the Valdinera estate has been farmed by the Careglio family for four generations.  At present, it consists of about 41 acres of which 22 are vineyards. Currently, 'Beppe' Careglio grows Barbera, Favorita, Nebbiolo and, of course, Arneis.",
@@ -578,6 +597,7 @@
 		"Sontuoso":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Sontuoso', Nebbiolo d'Alba, DOC, 2011",
 			"vineyard": "Azienda Agricola Valdinera",
 			"short_desc": "Located in the heart of Piedmont near the city of Alba, the Valdinera estate has been farmed by the Careglio family for four generations. At present, it consists of about 41 acres of which 22 are vineyards. Currently, 'Beppe' Careglio grows Barbera, Favorita, Arneis and, of course, Nebbiolo.",
@@ -606,6 +626,7 @@
 		"Moscato":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Moscato d'Asti, DOCG, 2015",
 			"vineyard": "Azienda Agricola Rivetti Massimo",
 			"short_desc": "This luscious Moscato is made at the Rivetti Massimo winery, located in Nieve.  The grapes, grown on one of three vineyards owned by the winery,  are from the hills of lower Langa in the heart of Piedmont.  The Massimo Rivetti winery has about 50 acres of planted vineyards -- Garassino in Mango, La Palazzina in Alba and the oldest with vines up to 50 years old, Froi in Nieve.  It is from this prime vineyard we get this golden yellow 'Drink of the Gods'.",
@@ -634,6 +655,7 @@
 		"Gavi":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Gavi Del Comune Di Gavi, DOCG, 2015",
 			"vineyard": "La Smilla",
 			"short_desc": "All Gavi must be 100 percent Cortese, a grape first mentioned as indigenous to the Province of Alessandria in 1659. This is still where the finest expression of Cortese comes from, specifically those vineyards planted within the Comune (township) di Gavi. Such wines are the only ones allowed to carry the prestigious DOCG 'Gavi di Gavi'. ",
@@ -662,6 +684,7 @@
 		"Cannonau":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Rei', Cannonau di Sardegna, DOC, 2013",
 			"vineyard": "Cantina Castiadas",
 			"short_desc": "This grape variety is said to be related to the Spanish Garnacha as well as the French Grenache, and was brought to Sardinia by Spanish conquerors in the 13th century.Cannonau, according to the folklore, is so called because in the 16th century after a battle with the islanders, the Spanish loaded their ships with 'courage cannons and Sardinian wine' (According to Vino Italiano)",
@@ -690,6 +713,7 @@
 		"Etna Phiale":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Phiale', Etna Rosso, DOC, 2012",
 			"vineyard": "Tenuta Scilio Di Valle Galfina",
 			"short_desc": "Surrounded by turn-of-the century cottages, our vineyard lies on the North Eastern slopes of Mount Etna. This area is called Valle Galfina, and at 2,300 feet above sea level, is the center of the Etna DOC region. This vine growing area goes back to antiquity, and the fine art of viticulture has been handed down from generation to generation. The Valle Galfina valley with its volcanic soil, its particular microclimate and low yields produces very high quality wines. The wines of Tenuta Scilio are made exclusively from the vineyards of the family estate, cultivated organically, cared for laboriously, combining Sicilian traditions of winemaking with the most modern techniques of vinification. ",
@@ -718,6 +742,7 @@
 		"Etna Galfina 2013":{
 			"label_image": "",
 			"region_image": "",
+			"type": "rose",
 			"title": "'Valle Galfina', Etna Rosso, DOC, 2013",
 			"vineyard": "Tenuta Scilio Di Valle Galfina",
 			"short_desc": "Surrounded by turn-of-the century cottages, our vineyard lies on the North Eastern slopes of Mount Etna. This area is called Valle Galfina, and at 2,300 feet above sea level, is the center of the Etna DOC region. This vine growing area goes back to antiquity, and the fine art of viticulture has been handed down from generation to generation. The Valle Galfina valley with its volcanic soil, its particular microclimate and low yields produces very high quality wines. The wines of Tenuta Scilio are made exclusively from the vineyards of the family estate, cultivated organically, cared for laboriously, combining Sicilian traditions of winemaking with the most modern techniques of vinification. ",
@@ -746,6 +771,7 @@
 		"Etna Galfina 2015":{
 			"label_image": "",
 			"region_image": "",
+			"type": "rose",
 			"title": "'Valle Galfina', Etna Rosso, DOC, 2015",
 			"vineyard": "Tenuta Scilio Di Valle Galfina",
 			"short_desc": "Surrounded by turn-of-the century cottages, our vineyard lies on the North Eastern slopes of Mount Etna. This area is called Valle Galfina, and at 2,300 feet above sea level, is the center of the Etna DOC region. This vine growing area goes back to antiquity, and the fine art of viticulture has been handed down from generation to generation. The Valle Galfina valley with its volcanic soil, its particular microclimate and low yields produces very high quality wines. The wines of Tenuta Scilio are made exclusively from the vineyards of the family estate, cultivated organically, cared for laboriously, combining Sicilian traditions of winemaking with the most modern techniques of vinification. ",
@@ -774,6 +800,7 @@
 		"Toscana":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Le Portine', Toscana, IGT, 2008",
 			"vineyard": "Poggiolo S.A.S of Bonfio Luca & C.",
 			"short_desc": "Tenuta Poggiolo now known as Bonfio is an estate located in the heart of Chianti Colli Senesi. The vineyard Le Portine is one of several vineyards belonging to the estate that totals 230 hectares. The different vineyards have their own microclimates, and special care is given to the processing of the grapes to make wines which express the subtle differences of the four vineyards.",
@@ -802,6 +829,7 @@
 		"Chianti Colli":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Federico Bonfio', Colli Senesi, Chianti, DOCG, 2013",
 			"vineyard": "Poggiolo S.A.S of Bonfio Luca & C.",
 			"short_desc": "Tenuta Poggiolo now known as Bonfio is an estate located in the heart of Chianti Colli Senesi. The different vineyards, in total 230 hectares, have their own microclimates, and special care is given to the processing of the grapes to make wines which express the subtle differences.",
@@ -830,6 +858,7 @@
 		"Chianti Classico":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Chianti Classico, DOCG, 2011",
 			"vineyard": "Castello La Leccia",
 			"short_desc": "Castello La Leccia is an ancient estate located just north of Siena, that is known for its traditional wine and olive oil production. The yield is limited to 45 hectoliters per hectare. Only an average of 2,500 cases of this wine are made each year at La Leccia",
@@ -858,6 +887,7 @@
 		"Montefalco":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Montefalco Sagrantino, DOCG, 2007",
 			"vineyard": "Terre de’ Trinci",
 			"short_desc": "Terre de’ Trinci is located in Umbria, the heart of Italy’s wine growing region. Members of the Trinci family have been part of the ruling elite in Foligno (center of the Sagrantino area) since the 12th century, building perhaps the best-known castle in Foligno, on Piazza Grande, the Trinci Palace.",
@@ -886,6 +916,7 @@
 		"Amarone":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Amarone della Valpolicella Classico, DOC, 2010",
 			"vineyard": "Azienda Vinicola Nuve (Aldegheri S.r.l)",
 			"short_desc": "The grapes for this Amarone are harvested at the beginning of October, left to dry on straw mats until the beginning of February, then gently crushed and fermented. After several rackings, the wine is transferred to large oak casks, where it stays for more than 3 years. A small portion, about 15%, is aged in barriques, then blended back into the large casks. After bottling, the wine is aged a further 6-8 months.",
@@ -914,6 +945,7 @@
 		"Ripasso":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "Valpolicella Ripasso Classico Superiore, DOC, 2013",
 			"vineyard": "Azienda Vinicola Nuve (Aldegheri S.r.l)",
 			"short_desc": "Harvested mid to late September, the grapes for this Valpolicella go through a process called “Ripasso”, in which the juice is refermented on the skins of the grapes used to produce our Amarone. In this way the wine takes on greater body, intensity, and a lightly raisiny quality. The wine is then aged in large wooden casks for about a year before bottling.",
@@ -942,6 +974,7 @@
 		"Matiu":{
 			"label_image": "",
 			"region_image": "",
+			"type": "sparkling",
 			"title": "'Matiu', Conegliano, Prosecco Superiore, Brut, DOCG, 2015",
 			"vineyard": "L'Antica Quercia",
 			"short_desc": "The symbol and also the name of the winery comes from a proud old oak tree of the Quercus Pubescens species, also known as Downy Oak. This tree has flourished for four centuries at the top of the hill on which the vineyard is planted. The vines flourish in the mineral-rich soil and perfect micro-climate. Viticulture is organic, and it's worth noting that a single-hill vineyard is very unusual if not unique for Prosecco.",
@@ -970,6 +1003,7 @@
 		"Barbameto":{
 			"label_image": "",
 			"region_image": "",
+			"type": "red",
 			"title": "'Barbameto', Spumante Extra Dry, Millesimato, 2013",
 			"vineyard": "Azienda Agricola Colsaliz di Antonio Faganello",
 			"short_desc": "The grapes in this wine is grown on the sandy hills of Northern Veneto which are protected by the Dolomites in the north and reach down to the Adriatic Sea in the south, creating a perfect climate to grow the grapes present in this wine.",
@@ -998,6 +1032,7 @@
 		"Sauvignon":{
 			"label_image": "",
 			"region_image": "",
+			"type": "white",
 			"title": "Sauvignon Blanc, Veneto, IGT, 2015",
 			"vineyard": "Cantine Sacchetto",
 			"short_desc": "Sacchetto is located at the point where the provinces of Treviso, Padua and Venice meet, in the small town of Trebaseleghe in Veneto.",
