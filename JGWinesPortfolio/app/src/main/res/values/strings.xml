@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JG Wines Portfolio</string>
+    <string name="label_gavi">Label_Gavi</string>
+    <string name="detailsButton">Details</string>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/white"
+    tools:context=".Activity_Main">
+
+    <ImageView
+        android:id="@+id/companyLogo"
+        android:src="@drawable/jgwlogo"
+        android:layout_width="100pt"
+        android:layout_height="100pt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20pt"
+        android:layout_marginTop="20pt"
+        />
+
+    <TextView
+        android:id="@+id/companyName"
+        android:text="John Given Wines, Inc."
+        android:textSize="12pt"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/companyLogo"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="5pt"
+        />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:text="Importer of Fine Italian Wines"
+        android:textSize="10pt"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/companyName"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20pt"
+        />
+
+    <Button
+        android:id="@+id/enterPortfolio"
+        android:text="View Portfolio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/subtitle"
+        />
+</RelativeLayout>
