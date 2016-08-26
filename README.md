@@ -1,2 +1,2 @@
-# JGWines_App_Android
+# JGWines App for Android
 A portfolio app for John Given Wines, Inc. displaying all their wines.
