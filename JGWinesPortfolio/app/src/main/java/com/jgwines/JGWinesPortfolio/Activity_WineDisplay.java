@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -17,35 +21,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Activity_WineDisplay extends AppCompatActivity {
-    private Helper_JSONReader jsonReader;
-    private JSONObject jsonObject;
-    private JSONArray jsonArray;
-
-    // Strings from json file
-    private String label_image;
-    private String region_image;
-    private String title;
-    private String vineyard;
-    private String short_desc;
-    private String extended_desc;
-    private String tasting_notes;
-    private String region;
-    private String classification;
-    private String production_area;
-    private String grape;
-    private String soil;
-    private String vine_age;
-    private String plant_spacing;
-    private String trellis_system;
-    private String production_per_acre;
-    private String technique;
-    private String maturation;
-    private String acidity;
-    private String ph;
-    private String sugar_content;
-    private String alcohol;
-    private String cases_produced;
-    private JSONArray photos; // Contains strings for with image file names
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,47 +30,39 @@ public class Activity_WineDisplay extends AppCompatActivity {
         Intent intent = getIntent();
         String key = intent.getStringExtra("key");
 
-        jsonReader = new Helper_JSONReader("wines", this);
-        jsonObject = jsonReader.getJsonObj();
-        jsonArray = jsonReader.getJsonArr("key");
-        parseWineInfo(key); // Parse out the JSON information, store in Strings above
-        setContent(); // Use parsed information to create wine information (This is incredibly messy)
-    }
+        // Use helper to get json object and array from "wines" file
+        Helper_JSONReader jsonReader = new Helper_JSONReader("wines", this);
+        JSONObject jsonObject = jsonReader.getJsonObj();
+        JSONArray jsonArray = jsonReader.getJsonArr("wineDetailsKey");
 
-    // Parses the wines.json file to pull out information and store it in Strings created in global space
-    public void parseWineInfo(String key){
+        TextView wineTitle = (TextView) this.findViewById(R.id.wineName_WineDisplay);
+        TextView vineyard = (TextView) this.findViewById(R.id.vineyardName_WineDisplay);
+        ImageView label = (ImageView) this.findViewById(R.id.labelImage_WineDisplay);
+
+        // Set jsonObject to the wine to be displayed - narrow down information being passed
+        // Set content for Title, Vineyard, and Label Image
         try {
-            JSONObject wineInfo = jsonObject.getJSONObject("wines").getJSONObject(key);
-
-            label_image = wineInfo.getString("label_image");
-            region_image = wineInfo.getString("region_image");
-            title = wineInfo.getString("title");
-            vineyard = wineInfo.getString("vineyard");
-            short_desc = wineInfo.getString("short_desc");
-            extended_desc = wineInfo.getString("extended_desc");
-            tasting_notes = wineInfo.getString("tasting_notes");
-            region = wineInfo.getString("region");
-            classification = wineInfo.getString("classification");
-            production_area = wineInfo.getString("production_area");
-            grape = wineInfo.getString("grape");
-            soil = wineInfo.getString("soil");
-            vine_age = wineInfo.getString("vine_age");
-            plant_spacing = wineInfo.getString("plant_spacing");
-            trellis_system = wineInfo.getString("trellis_system");
-            production_per_acre = wineInfo.getString("production_per_acre");
-            technique = wineInfo.getString("technique");
-            maturation = wineInfo.getString("maturation");
-            acidity = wineInfo.getString("acidity");
-            ph = wineInfo.getString("ph");
-            sugar_content = wineInfo.getString("sugar_content");
-            alcohol = wineInfo.getString("alcohol");
-            cases_produced = wineInfo.getString("cases_produced");
-            photos = wineInfo.getJSONArray("photos");
+            jsonObject = jsonObject.getJSONObject("wines").getJSONObject(key);
+            wineTitle.setText(jsonObject.getString("title"));
+            vineyard.setText(jsonObject.getString("vineyard"));
+            String labelname = jsonObject.getString("label_image");
+            label.setImageResource(getResources().getIdentifier("com.jgwines.JGWinesPortfolio:drawable/" + labelname, null, null));
         } catch (JSONException e){
             e.printStackTrace();
         }
+
+        // Create RecyclerView panels for wine information from Tasting Notes thru Photos
+        RecyclerView wineDetailsRecycler = (RecyclerView) this.findViewById(R.id.rvWineDisplay);
+        Adapter_WineDetails winesAdapter = new Adapter_WineDetails(jsonObject, jsonArray);
+        RecyclerView.LayoutManager winesLayoutManager = new LinearLayoutManager(getApplicationContext());
+        wineDetailsRecycler.setAdapter(winesAdapter);
+        wineDetailsRecycler.setLayoutManager(winesLayoutManager);
+
+        //setContent(); // Use parsed information to create wine information (This is incredibly messy)
     }
 
+
+    /*
     // This section is a mess, but I don't know how to make it not a mess yet
     // Creates a LinearLayout to put all the view in
     // Each view is generated only if the String for that section is anything other than ""
@@ -103,36 +70,33 @@ public class Activity_WineDisplay extends AppCompatActivity {
     // This way all that is necessary to update is the json file to add new wines
     public void setContent(){
         LinearLayout wineInfoLayout = new LinearLayout(this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        int ten = pixelConverter.getPixelfromDP(10);
+        layoutParams.setMargins(ten, ten, ten, ten);
+        wineInfoLayout.setLayoutParams(layoutParams);
+        wineInfoLayout.setPadding(ten, ten, ten, ten);
         wineInfoLayout.setOrientation(LinearLayout.VERTICAL);
+
         ScrollView wineInfoScroll = (ScrollView) this.findViewById(R.id.wineInfo_WineDisplay);
+
+        // Add text to Title TextView
+        if(!title.equals("")){
+            TextView titleTV = (TextView) findViewById(R.id.wineName_WineDisplay);
+            titleTV.setText(title);}
+
+        // Add Vineyard TextView
+        if(!vineyard.equals("")){
+            TextView vineyardTV = (TextView) findViewById(R.id.vineyardName_WineDisplay);
+            vineyardTV.setText(vineyard);}
 
         // Add Label Image
         if(!label_image.equals("")){
             ImageView labelIV = new ImageView(this);
             labelIV.setImageResource(getResources().getIdentifier("com.jgwines.JGWinesPortfolio:drawable/" + label_image, null, null));
             wineInfoLayout.addView(labelIV);}
-
-        // Add Region Image
-        if(!region_image.equals("")){
-            ImageView regionIV = new ImageView(this);
-            regionIV.setImageResource(getResources().getIdentifier("com.jgwines.JGWinesPortfolio:drawable/" + region_image, null, null));
-            wineInfoLayout.addView(regionIV);}
-
-        // Add Title TextView
-        if(!title.equals("")){
-            TextView titleTV = new TextView(this);
-            titleTV.setText(title);
-            titleTV.setTextSize(20);
-            titleTV.setGravity(Gravity.CENTER_HORIZONTAL);
-            wineInfoLayout.addView(titleTV);}
-
-        // Add Vineyard TextView
-        if(!vineyard.equals("")){
-            TextView vineyardTV = new TextView(this);
-            vineyardTV.setText(vineyard);
-            vineyardTV.setTextSize(15);
-            vineyardTV.setGravity(Gravity.CENTER_HORIZONTAL);
-            wineInfoLayout.addView(vineyardTV);}
 
         // Add Short Description TextView
         if(!short_desc.equals("")){
@@ -158,6 +122,12 @@ public class Activity_WineDisplay extends AppCompatActivity {
             sectionLabel.setTypeface(Typeface.DEFAULT_BOLD);
             wineInfoLayout.addView(sectionLabel);
             wineInfoLayout.addView(tasting_notesTV);}
+
+        // Add Region Image
+        if(!region_image.equals("")){
+            ImageView regionIV = new ImageView(this);
+            regionIV.setImageResource(getResources().getIdentifier("com.jgwines.JGWinesPortfolio:drawable/" + region_image, null, null));
+            wineInfoLayout.addView(regionIV);}
 
         // Add Region TextView
         if(!region.equals("")){
@@ -339,4 +309,5 @@ public class Activity_WineDisplay extends AppCompatActivity {
 
         wineInfoScroll.addView(wineInfoLayout);
     }
+    */
 }

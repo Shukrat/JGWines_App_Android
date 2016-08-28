@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="2dp"
-    android:paddingRight="2dp"
-    android:paddingTop="2dp"
+    android:background="@color/backgroundColor"
     tools:context=".Activity_WineDisplay">
 
-    <Button
-        android:id="@+id/backButton_WineDisplay"
-        android:text="Back"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
-
-    <ScrollView
-        android:id="@+id/wineInfo_WineDisplay"
+    <LinearLayout
+        android:background="@color/regionBackground"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/backButton_WineDisplay"/>
+        android:elevation="4dp">
+        <TextView
+            android:id="@+id/wineName_WineDisplay"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="5dp"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/vineyardName_WineDisplay"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:background="@color/regionBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="8dp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/labelImage_WineDisplay"
+        android:contentDescription="label image"
+        android:background="@color/mainUnselectedButtonBG"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvWineDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

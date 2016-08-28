@@ -3,5 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="backgroundColor">#8D6E63</color>
+    <color name="backgroundColor">#FFFAF0</color>
+    <color name="wineItemBackground">#dedede</color>
+    <color name="mainUnselectedButtonBG">#420101</color>
+    <color name="regionBackground">#852323</color>
 </resources>

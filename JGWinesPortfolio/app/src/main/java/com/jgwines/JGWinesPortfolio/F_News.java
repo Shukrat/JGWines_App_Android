@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -16,7 +15,9 @@ import org.json.JSONObject;
  */
 public class F_News extends Fragment {
     private RecyclerView newVintageRecycler;
-    private Helper_JSONReader jsonReader;
+    private RecyclerView tastingsRecycler;
+    private Helper_JSONReader jsonReaderWines;
+    private Helper_JSONReader jsonReaderTastings;
 
     public static F_News newInstance() {
         return new F_News();
@@ -28,9 +29,11 @@ public class F_News extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View mView = inflater.inflate(R.layout.fragment_newvintages, container, false);
+        View mView = inflater.inflate(R.layout.fragment_news, container, false);
         newVintageRecycler = (RecyclerView) mView.findViewById(R.id.rvNewVintages);
-        jsonReader = new Helper_JSONReader("wines", getActivity());
+        tastingsRecycler = (RecyclerView) mView.findViewById(R.id.rvTastings);
+        jsonReaderWines = new Helper_JSONReader("wines", getActivity());
+        jsonReaderTastings = new Helper_JSONReader("tastings", getActivity());
 
         return mView;
     }
@@ -39,12 +42,18 @@ public class F_News extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
 
-        JSONObject allWinesObj = jsonReader.getJsonObj();
+        JSONObject allWinesObj = jsonReaderWines.getJsonObj();
+        JSONObject tastingsObj = jsonReaderTastings.getJsonObj();
 
-        Adapter_News newsAdapter = new Adapter_News(allWinesObj, getContext());
+        Adapter_NewVintage newsAdapter = new Adapter_NewVintage(allWinesObj, getContext());
         RecyclerView.LayoutManager newsLayoutManager = new LinearLayoutManager(getActivity());
         newVintageRecycler.setAdapter(newsAdapter);
         newVintageRecycler.setLayoutManager(newsLayoutManager);
+
+        Adapter_Tastings tastingsAdapter = new Adapter_Tastings(tastingsObj);
+        RecyclerView.LayoutManager tastingsLayoutManager = new LinearLayoutManager(getActivity());
+        tastingsRecycler.setAdapter(tastingsAdapter);
+        tastingsRecycler.setLayoutManager(tastingsLayoutManager);
 
     }
 }

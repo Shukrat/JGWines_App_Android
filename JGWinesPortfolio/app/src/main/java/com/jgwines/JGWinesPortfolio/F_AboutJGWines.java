@@ -24,7 +24,7 @@ public class F_AboutJGWines extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_newvintages, container, false);
+        return inflater.inflate(R.layout.fragment_aboutjgwines, container, false);
 
 
     }

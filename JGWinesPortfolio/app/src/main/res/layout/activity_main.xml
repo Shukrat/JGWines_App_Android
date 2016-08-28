@@ -3,72 +3,62 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="4"
+    android:background="@color/backgroundColor"
     >
 
     <LinearLayout
         android:orientation="horizontal"
+        android:background="@drawable/menu_gradient"
         android:layout_width="match_parent"
-        android:layout_height="30pt"
+        android:layout_height="25pt"
         android:weightSum="4"
         >
 
         <Button
             android:id="@+id/button_newVintages"
-            android:text="New Vintages"
+            android:text="News"
             android:onClick="switchFragment"
-
-            android:background="@color/black"
-
+            android:background="@color/backgroundColor"
+            android:textColor="@color/mainUnselectedButtonBG"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="1pt"
-            android:layout_marginRight="1pt"
+            android:layout_marginEnd="1dp"
             />
 
         <Button
             android:id="@+id/button_regions"
             android:text="Regions"
             android:onClick="switchFragment"
-
-            android:background="@color/white"
-            android:textColor="@color/black"
-
+            android:background="@color/mainUnselectedButtonBG"
+            android:textColor="@color/backgroundColor"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="1pt"
-            android:layout_marginRight="1pt"
+            android:layout_marginEnd="1dp"
             />
 
         <Button
             android:id="@+id/button_allWines"
             android:text="All Wines"
             android:onClick="switchFragment"
-
-            android:background="@color/white"
-            android:textColor="@color/black"
-
+            android:background="@color/mainUnselectedButtonBG"
+            android:textColor="@color/backgroundColor"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="1pt"
-            android:layout_marginRight="1pt"
+            android:layout_marginEnd="1dp"
             />
 
         <Button
             android:text="About &#xA;JG Wines"
             android:id="@+id/button_aboutJGWines"
             android:onClick="switchFragment"
-
-            android:background="@color/white"
-            android:textColor="@color/black"
-
+            android:background="@color/mainUnselectedButtonBG"
+            android:textColor="@color/backgroundColor"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="1pt"
-            android:layout_marginRight="1pt"
             />
     </LinearLayout>
 
