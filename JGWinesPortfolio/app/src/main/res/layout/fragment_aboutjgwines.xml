@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
-        android:src="@drawable/annecatherine"
+        android:src="@drawable/main_jgwlogo"
 
-        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
         android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp" />
+
+    <TextView
+        android:text="“To discover good wine, you really need to love wine. Our mission has always centered on finding wines that are delicious and fun as well as interesting and good value. With so many varieties of wine to sample, I am always looking forward to a new food and wine experience.” \nAnne-Catherine Given"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/text_jgwdescription"
-        android:text="John Given Wines was founded in 1997, by John and Anne Catherine Given"
-        android:textSize="20sp"
-        android:textAlignment="center"
+        android:text="John Given Wines, Inc. was founded in 1997. Since then, the small, personal importing company has been dedicated to introducing a carefully-selected portfolio of new, different, high-quality and good-value Italian wines to the United States. Today, its distribution network covers twenty-four states (not counting the Virgin Islands). \n\nFounded by John and Anne-Catherine Given, it has grown its portfolio over the years to include over 30 different Italian wines."
+        android:textSize="16sp"
 
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="In Remembrance..."
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"/>
 
     <ImageView
         android:src="@drawable/john"
@@ -30,8 +46,11 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/text_jgwremember"
+        android:text="While on a business trip to Arizona in October 2007, John was diagnosed with acute leukemia. His death three weeks later came as a shock to all who knew him. To say he is missed is an understatement. Anne-Catherine continues to manage and develop the company she and John founded together."
+        android:textSize="16sp"
+
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"  />
 
 </LinearLayout>
