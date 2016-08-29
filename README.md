@@ -1,4 +1,5 @@
-# JGWines App for Android v1.0
+# John Given Wines, Inc. Wine Portfolio v1.0
+### For Android
 A portfolio app for John Given Wines, Inc. displaying all their wines.
 
 
