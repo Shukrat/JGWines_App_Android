@@ -25,7 +25,6 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
         public ImageView newVintageLabel;
         public LinearLayout newVintageLL;
         private Context mContext;
-        private String tag;
 
         public ViewHolder(View itemView, Context context){
             super(itemView);
