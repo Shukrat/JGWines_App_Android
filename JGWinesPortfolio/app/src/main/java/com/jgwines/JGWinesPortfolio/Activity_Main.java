@@ -1,11 +1,13 @@
 package com.jgwines.JGWinesPortfolio;
 
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 
 public class Activity_Main extends AppCompatActivity implements View.OnClickListener{
 
@@ -14,8 +16,9 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
     Button b_regions;
     Button b_allWines;
     Button b_aboutJGW;
+    ScrollView fragmentSS;
     int fragmentIndicator;
-    FragmentTransaction transactor;
+
     F_News f_newVintages;
 
     @Override
@@ -37,6 +40,20 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentsGoHere, f_newVintages).commit();
+        fragmentSS = (ScrollView) findViewById(R.id.fragmentsGoHere);
+        fragmentSS.setTag("news");
+    }
+
+    @Override
+    public void onBackPressed(){
+        int index = getSupportFragmentManager().getBackStackEntryCount() - 1;
+        if(index >= 0) {
+            FragmentManager.BackStackEntry backEntry = getSupportFragmentManager().getBackStackEntryAt(index);
+            String tag = backEntry.getName();
+            colorButtons(tag);
+        }
+
+        super.onBackPressed();
     }
 
     public void prepButtons(){
@@ -46,14 +63,14 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
         b_aboutJGW = (Button) findViewById(R.id.button_aboutJGWines);
     }
 
-    public void changeFragment(Fragment fragment){
-        transactor = getSupportFragmentManager().beginTransaction();
+    public void changeFragment(Fragment fragment, String name){
+        FragmentTransaction transactor = getSupportFragmentManager().beginTransaction();
         transactor.replace(R.id.fragmentsGoHere, fragment);
-        transactor.addToBackStack(null);
+        transactor.addToBackStack(name);
         transactor.commit();
     }
 
-    public void colorButtons(int i){
+    public void colorButtons(String string){
         b_newVintages.setTextColor(getResources().getColor(R.color.backgroundColor));
         b_regions.setTextColor(getResources().getColor(R.color.backgroundColor));
         b_allWines.setTextColor(getResources().getColor(R.color.backgroundColor));
@@ -62,23 +79,23 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
         b_regions.setBackgroundResource(R.color.mainUnselectedButtonBG);
         b_allWines.setBackgroundResource(R.color.mainUnselectedButtonBG);
         b_aboutJGW.setBackgroundResource(R.color.mainUnselectedButtonBG);
-        switch (i){
-            case 1: {
+        switch (string){
+            case "news": {
                 b_newVintages.setTextColor(getResources().getColor(R.color.mainUnselectedButtonBG));
                 b_newVintages.setBackgroundResource(R.color.backgroundColor);
                 break;
             }
-            case 2:{
+            case "regions":{
                 b_regions.setTextColor(getResources().getColor(R.color.mainUnselectedButtonBG));
                 b_regions.setBackgroundResource(R.color.backgroundColor);
                 break;
             }
-            case 3:{
+            case "allwines":{
                 b_allWines.setTextColor(getResources().getColor(R.color.mainUnselectedButtonBG));
                 b_allWines.setBackgroundResource(R.color.backgroundColor);
                 break;
             }
-            case 4:{
+            case "aboutjgw":{
                 b_aboutJGW.setTextColor(getResources().getColor(R.color.mainUnselectedButtonBG));
                 b_aboutJGW.setBackgroundResource(R.color.backgroundColor);
                 break;
@@ -92,7 +109,8 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
             case (R.id.button_newVintages):
                 if(fragmentIndicator == 1) break;
                 else{
-                    changeFragment(f_newVintages);
+                    changeFragment(f_newVintages, (String)fragmentSS.getTag());
+                    fragmentSS.setTag("news");
                     fragmentIndicator = 1;
                 }
                 break;
@@ -101,7 +119,8 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
                 else{
                     F_Regions f_region = new F_Regions();
 
-                    changeFragment(f_region);
+                    changeFragment(f_region, (String)fragmentSS.getTag());
+                    fragmentSS.setTag("regions");
                     fragmentIndicator = 2;
                 }
                 break;
@@ -110,7 +129,8 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
                 else{
                     F_AllWines f_allwines = new F_AllWines();
 
-                    changeFragment(f_allwines);
+                    changeFragment(f_allwines, (String)fragmentSS.getTag());
+                    fragmentSS.setTag("allwines");
                     fragmentIndicator = 3;
                 }
                 break;
@@ -119,13 +139,14 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
                 else{
                     F_AboutJGWines f_aboutjgw = new F_AboutJGWines();
 
-                    changeFragment(f_aboutjgw);
+                    changeFragment(f_aboutjgw, (String)fragmentSS.getTag());
+                    fragmentSS.setTag("aboutjgw");
                     fragmentIndicator = 4;
                 }
                 break;
             default:
                 break;
         }
-        colorButtons(fragmentIndicator);
+        colorButtons((String) fragmentSS.getTag());
     }
 }
