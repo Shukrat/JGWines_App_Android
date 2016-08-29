@@ -16,8 +16,7 @@ import org.json.JSONObject;
 public class F_News extends Fragment {
     private RecyclerView newVintageRecycler;
     private RecyclerView tastingsRecycler;
-    private Helper_JSONReader jsonReaderWines;
-    private Helper_JSONReader jsonReaderTastings;
+    Helper_JSONReader_Singleton jsonReader_singleton;
 
     public static F_News newInstance() {
         return new F_News();
@@ -29,11 +28,11 @@ public class F_News extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         View mView = inflater.inflate(R.layout.fragment_news, container, false);
         newVintageRecycler = (RecyclerView) mView.findViewById(R.id.rvNewVintages);
         tastingsRecycler = (RecyclerView) mView.findViewById(R.id.rvTastings);
-        jsonReaderWines = new Helper_JSONReader("wines", getActivity());
-        jsonReaderTastings = new Helper_JSONReader("tastings", getActivity());
+        jsonReader_singleton.getJSONObjFromFile("wines");
 
         return mView;
     }
@@ -42,8 +41,8 @@ public class F_News extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
 
-        JSONObject allWinesObj = jsonReaderWines.getJsonObj();
-        JSONObject tastingsObj = jsonReaderTastings.getJsonObj();
+        JSONObject allWinesObj = jsonReader_singleton.getJSONObjFromFile("wines");
+        JSONObject tastingsObj = jsonReader_singleton.getJSONObjFromFile("tastings");
 
         Adapter_NewVintage newsAdapter = new Adapter_NewVintage(allWinesObj, getContext());
         RecyclerView.LayoutManager newsLayoutManager = new LinearLayoutManager(getActivity());

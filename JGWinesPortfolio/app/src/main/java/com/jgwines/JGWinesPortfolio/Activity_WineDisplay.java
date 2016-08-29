@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Activity_WineDisplay extends AppCompatActivity {
+    Helper_JSONReader_Singleton jsonReader_singleton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,11 @@ public class Activity_WineDisplay extends AppCompatActivity {
 
         Intent intent = getIntent();
         String key = intent.getStringExtra("key");
-
+        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
+        jsonReader_singleton.setContext(this);
         // Use helper to get json object and array from "wines" file
-        Helper_JSONReader jsonReader = new Helper_JSONReader("wines", this);
-        JSONObject jsonObject = jsonReader.getJsonObj();
-        JSONArray jsonArray = jsonReader.getJsonArr("wineDetailsKey");
+        JSONObject jsonObject = jsonReader_singleton.getJSONObjFromFile("wines");
+        JSONArray jsonArray = jsonReader_singleton.getJSONArrayFromJSONObject(jsonObject, "wineDetailsKey");
 
         TextView wineTitle = (TextView) this.findViewById(R.id.wineName_WineDisplay);
         TextView vineyard = (TextView) this.findViewById(R.id.vineyardName_WineDisplay);

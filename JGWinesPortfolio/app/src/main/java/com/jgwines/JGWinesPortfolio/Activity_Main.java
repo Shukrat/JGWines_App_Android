@@ -17,6 +17,7 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
     Button b_allWines;
     Button b_aboutJGW;
     ScrollView fragmentSS;
+    Helper_JSONReader_Singleton jsonReader_singleton;
     int fragmentIndicator;
 
     F_News f_newVintages;
@@ -26,6 +27,8 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial);
 
+        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
+        jsonReader_singleton.setContext(this);
         b_enterPortfolio = (Button) findViewById(R.id.enterPortfolio);
         b_enterPortfolio.setOnClickListener(this);
     }

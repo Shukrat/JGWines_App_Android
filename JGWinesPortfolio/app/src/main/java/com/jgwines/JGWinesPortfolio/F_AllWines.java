@@ -15,7 +15,7 @@ import org.json.JSONObject;
  */
 public class F_AllWines extends Fragment{
     private RecyclerView winesRecycler;
-    private Helper_JSONReader jsonReader;
+    Helper_JSONReader_Singleton jsonReader_singleton;
 
 
     public static F_AllWines newInstance() {
@@ -28,9 +28,9 @@ public class F_AllWines extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         View mView = inflater.inflate(R.layout.fragment_allwines, container, false);
         winesRecycler = (RecyclerView) mView.findViewById(R.id.rvWineList);
-        jsonReader = new Helper_JSONReader("wines", getActivity());
 
         return mView;
     }
@@ -39,7 +39,7 @@ public class F_AllWines extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        JSONObject allWinesObj = jsonReader.getJsonObj();
+        JSONObject allWinesObj = jsonReader_singleton.getJSONObjFromFile("wines");
 
         Adapter_Wines winesAdapter = new Adapter_Wines(allWinesObj, getContext());
         RecyclerView.LayoutManager winesLayoutManager = new LinearLayoutManager(getActivity());

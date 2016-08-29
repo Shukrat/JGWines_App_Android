@@ -18,6 +18,7 @@ public class F_Regions extends Fragment {
     private JSONArray regionsArr;
     private JSONObject winesObj;
     private RecyclerView regionsRecycler;
+    Helper_JSONReader_Singleton jsonReader_singleton;
 
     public static F_News newInstance() {
         return new F_News();
@@ -29,12 +30,11 @@ public class F_Regions extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         View mView = inflater.inflate(R.layout.fragment_regions, container, false);
         regionsRecycler = (RecyclerView) mView.findViewById(R.id.rvRegionsList);
-        Helper_JSONReader jsonReader = new Helper_JSONReader("regions", getActivity());
-        Helper_JSONReader jsonReader2 = new Helper_JSONReader("wines", getActivity());
-        regionsArr = jsonReader.getJsonArr("regions");
-        winesObj = jsonReader2.getJsonObj();
+        regionsArr = jsonReader_singleton.getJSONArrayFromFile("regions", "regions");
+        winesObj = jsonReader_singleton.getJSONObjFromFile("wines");
 
         return mView;
     }
