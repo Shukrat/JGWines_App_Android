@@ -10,10 +10,10 @@ Uses 4 fragments to shift UI content by 4 buttons at top. Fragment changes are a
   -New Vintages marked in JSON file and loaded.  
    2.  Regions Fragment:  
   -Regions loaded via RecyclerView.  
-  -Wines in regions are RecyclerViews nested in Regions.  
-	3. All Wines Fragment:  
+  -Wines in regions are RecyclerViews nested in Regions.
+   3. All Wines Fragment:  
   -All wines loaded into RecyclerView.  
-	4. About JGWines:  
+   4. About JGWines:  
   -Static content.
 		
 ##Wine Information Activity:
