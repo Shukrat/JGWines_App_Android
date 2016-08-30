@@ -1,11 +1,10 @@
-# John Given Wines, Inc. Wine Portfolio v1.0
+# John Given Wines, Inc. Wine Portfolio v0.9
 ### For Android
 A portfolio app for John Given Wines, Inc. displaying all their wines.
 
 
 ##Main Activity:
-Uses 4 fragments to shift UI content by 4 buttons at top. Fragment changes are added to backstack, and back button also remembers button colors for previous tab selected.
-4 Fragments:
+Uses 4 fragments to shift UI content by 4 buttons at top. Fragment changes are added to backstack, and back button also remembers button colors for previous tab selected.  
    1. News Fragment:  
   -Tastings loaded from JSON file.  
   -New Vintages marked in JSON file and loaded.  
