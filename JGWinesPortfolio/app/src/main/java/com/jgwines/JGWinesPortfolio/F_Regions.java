@@ -20,8 +20,8 @@ public class F_Regions extends Fragment {
     private RecyclerView regionsRecycler;
     Helper_JSONReader_Singleton jsonReader_singleton;
 
-    public static F_News newInstance() {
-        return new F_News();
+    public static F_Regions newInstance() {
+        return new F_Regions();
     }
 
     public F_Regions(){}

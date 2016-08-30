@@ -5,9 +5,21 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.Toast;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 public class Activity_Main extends AppCompatActivity implements View.OnClickListener{
 
@@ -18,6 +30,7 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
     Button b_aboutJGW;
     ScrollView fragmentSS;
     Helper_JSONReader_Singleton jsonReader_singleton;
+    ServerRequest_VersionCheck checkVersion;
     int fragmentIndicator;
 
     F_News f_newVintages;
@@ -29,6 +42,9 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
 
         jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
+
+        new ServerRequest_VersionCheck(this).execute("version");
+
         b_enterPortfolio = (Button) findViewById(R.id.enterPortfolio);
         b_enterPortfolio.setOnClickListener(this);
     }
@@ -39,7 +55,7 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
         prepButtons();
 
         fragmentIndicator = 1;
-        f_newVintages = new F_News();
+        f_newVintages = F_News.newInstance();
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentsGoHere, f_newVintages).commit();
@@ -120,7 +136,7 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
             case (R.id.button_regions):
                 if(fragmentIndicator == 2) break;
                 else{
-                    F_Regions f_region = new F_Regions();
+                    F_Regions f_region = F_Regions.newInstance();
 
                     changeFragment(f_region, (String)fragmentSS.getTag());
                     fragmentSS.setTag("regions");
@@ -130,7 +146,7 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
             case (R.id.button_allWines):
                 if(fragmentIndicator == 3) break;
                 else{
-                    F_AllWines f_allwines = new F_AllWines();
+                    F_AllWines f_allwines = F_AllWines.newInstance();
 
                     changeFragment(f_allwines, (String)fragmentSS.getTag());
                     fragmentSS.setTag("allwines");
@@ -140,7 +156,7 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
             case (R.id.button_aboutJGWines):
                 if(fragmentIndicator == 4) break;
                 else{
-                    F_AboutJGWines f_aboutjgw = new F_AboutJGWines();
+                    F_AboutJGWines f_aboutjgw = F_AboutJGWines.newInstance();
 
                     changeFragment(f_aboutjgw, (String)fragmentSS.getTag());
                     fragmentSS.setTag("aboutjgw");
