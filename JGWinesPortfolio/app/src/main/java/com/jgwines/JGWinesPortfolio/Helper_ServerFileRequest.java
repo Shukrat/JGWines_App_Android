@@ -32,14 +32,14 @@ public class Helper_ServerFileRequest extends AsyncTask<String, Void, String> {
         String path = mContext.getFilesDir().getAbsolutePath()+"/"+askFor;
 
         try {
-            String url = "http://10.0.2.2:8080/" + askFor + ".json";
+            String url = "http://www.jgwines.com/builderFiles/" + askFor + ".json";
             URL myurl = new URL(url);
 
             HttpURLConnection conn = (HttpURLConnection) myurl.openConnection();
             conn.connect();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuilder sb = new StringBuilder(2048);
+            StringBuilder sb = new StringBuilder();
             String line = null;
 
             // Read Server Response

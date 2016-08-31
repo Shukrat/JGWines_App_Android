@@ -22,7 +22,6 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView newVintageTitle;
         public TextView newVintageVineyard;
-        public ImageView newVintageLabel;
         public LinearLayout newVintageLL;
         private Context mContext;
 

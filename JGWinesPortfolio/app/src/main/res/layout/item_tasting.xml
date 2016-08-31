@@ -54,6 +54,28 @@
             android:layout_marginStart="5dp"/>
         <TextView
             android:id="@+id/tastingLocation"
+            android:textColor="@color/blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+        <TextView
+            android:text="Phone: "
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"/>
+        <TextView
+            android:id="@+id/tastingPhone"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

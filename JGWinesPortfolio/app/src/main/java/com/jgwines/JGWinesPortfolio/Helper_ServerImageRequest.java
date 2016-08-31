@@ -24,7 +24,7 @@ public class Helper_ServerImageRequest extends AsyncTask<String, Void, Bitmap> {
         String askFor = strings[0];
         Bitmap labelImage = null;
         try {
-            String url = "http://10.0.2.2:8080/label_images/" + askFor + ".jpg";
+            String url = "http://www.jgwines.com/builderFiles/label_images/" + askFor + ".jpg";
 
             InputStream in = new java.net.URL(url).openStream();
             labelImage = BitmapFactory.decodeStream(in);

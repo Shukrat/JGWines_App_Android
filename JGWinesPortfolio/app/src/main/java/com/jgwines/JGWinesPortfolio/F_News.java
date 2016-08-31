@@ -49,7 +49,7 @@ public class F_News extends Fragment {
         newVintageRecycler.setAdapter(newsAdapter);
         newVintageRecycler.setLayoutManager(newsLayoutManager);
 
-        Adapter_Tastings tastingsAdapter = new Adapter_Tastings(tastingsObj);
+        Adapter_Tastings tastingsAdapter = new Adapter_Tastings(tastingsObj, getContext());
         RecyclerView.LayoutManager tastingsLayoutManager = new LinearLayoutManager(getActivity());
         tastingsRecycler.setAdapter(tastingsAdapter);
         tastingsRecycler.setLayoutManager(tastingsLayoutManager);
