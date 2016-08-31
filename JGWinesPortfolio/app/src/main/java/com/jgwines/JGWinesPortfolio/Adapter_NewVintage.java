@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,16 +23,19 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
         public TextView newVintageTitle;
         public TextView newVintageVineyard;
         public LinearLayout newVintageLL;
+        public Button newVintageButton;
         private Context mContext;
 
         public ViewHolder(View itemView, Context context){
             super(itemView);
             mContext = context;
 
-            newVintageTitle = (TextView) itemView.findViewById(R.id.wineTitle_News);
-            newVintageVineyard = (TextView) itemView.findViewById(R.id.vineyard_News);
-            newVintageLL = (LinearLayout) itemView.findViewById(R.id.newVintage);
+            newVintageTitle = (TextView) itemView.findViewById(R.id.wineName_AllWinesList);
+            newVintageVineyard = (TextView) itemView.findViewById(R.id.wineVineyard_AllWinesList);
+            newVintageButton = (Button) itemView.findViewById(R.id.detailsButton_AllWinesList);
+            newVintageLL = (LinearLayout) itemView.findViewById(R.id.wineItemLayout);
             newVintageLL.setOnClickListener(this);
+            newVintageButton.setOnClickListener(this);
         }
 
         @Override
@@ -62,7 +66,7 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View newView = inflater.inflate(R.layout.item_newvintage, parent, false);
+        View newView = inflater.inflate(R.layout.item_wine, parent, false);
 
         return new ViewHolder(newView, mContext);
     }

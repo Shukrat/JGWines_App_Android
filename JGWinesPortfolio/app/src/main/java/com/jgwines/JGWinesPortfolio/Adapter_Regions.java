@@ -38,11 +38,11 @@ public class Adapter_Regions extends RecyclerView.Adapter<Adapter_Regions.ViewHo
         public void onClick(View v){
             if(wineinRegion.getVisibility() == View.GONE) {
                 wineinRegion.setVisibility(View.VISIBLE);
-                regionButton.setText("Hide Wines");
+                regionButton.setText(R.string.hideWines_RegionsAdapter);
             }
             else if(wineinRegion.getVisibility() == View.VISIBLE){
                 wineinRegion.setVisibility(View.GONE);
-                regionButton.setText("Show Wines");
+                regionButton.setText(R.string.showWines_RegionsAdapter);
             }
         }
     }

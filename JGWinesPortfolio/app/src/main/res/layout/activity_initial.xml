@@ -9,6 +9,7 @@
     <ImageView
         android:id="@+id/companyLogo"
         android:src="@drawable/main_jgwlogo"
+        android:contentDescription="@string/aboutjgw_logodescrip"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
@@ -18,7 +19,7 @@
 
     <TextView
         android:id="@+id/companyName"
-        android:text="John Given Wines, Inc."
+        android:text="@string/jgwines_initial"
         android:textSize="26sp"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
 
     <TextView
         android:id="@+id/subtitle"
-        android:text="Importer of Fine Italian Wines"
+        android:text="@string/jgwinesSub_initial"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:layout_width="wrap_content"
@@ -42,7 +43,7 @@
 
     <Button
         android:id="@+id/enterPortfolio"
-        android:text="View Portfolio"
+        android:text="@string/viewPortfolio_initial"
         android:textColor="@color/backgroundColor"
         android:background="@color/mainUnselectedButtonBG"
         android:layout_width="wrap_content"

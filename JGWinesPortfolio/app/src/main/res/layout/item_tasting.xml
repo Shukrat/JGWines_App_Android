@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
         <TextView
-            android:text="Time: "
+            android:text="@string/tasting_time"
             android:textSize="14sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
         <TextView
-            android:text="Location: "
+            android:text="@string/tasting_location"
             android:textSize="14sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
         <TextView
-            android:text="Phone: "
+            android:text="@string/tasting_phone"
             android:textSize="14sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"

@@ -99,8 +99,6 @@ public class Helper_ServerFileRequest extends AsyncTask<String, Void, String> {
     }
 
     protected void onPostExecute(String string) {
-        // TODO: check this.exception
-        // TODO: do something with the feed
         delegate.processFinished(string);
     }
 }

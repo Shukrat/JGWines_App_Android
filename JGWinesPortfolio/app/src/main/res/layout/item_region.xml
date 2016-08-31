@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/winesinRegionLL"
-    android:elevation="4dp"
     android:background="@color/backgroundColor"
     android:weightSum="3"
     android:layout_marginTop="10dp"
@@ -14,13 +13,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/regionBackground">
+        android:background="@color/regionBackground"
+        android:elevation="4dp">
         <TextView
             android:id="@+id/regionName_RegionsList"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:layout_weight="3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:paddingTop="5dp"
@@ -29,7 +29,7 @@
             android:paddingStart="15dp"/>
 
         <Button
-            android:text="Show Wines"
+            android:text="@string/showWinesButton"
             android:id="@+id/regionButton_RegionsList"
             android:layout_width="100dp"
             android:layout_height="wrap_content"

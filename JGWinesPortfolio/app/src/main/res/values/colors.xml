@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
     <color name="backgroundColor">#FFFAF0</color>
-    <color name="wineItemBackground">#dedede</color>
     <color name="mainUnselectedButtonBG">#420101</color>
     <color name="regionBackground">#852323</color>
     <color name="white">#FFFFFF</color>
