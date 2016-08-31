@@ -25,9 +25,5 @@ public class F_AboutJGWines extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_aboutjgwines, container, false);
-
-
     }
-
-
 }
