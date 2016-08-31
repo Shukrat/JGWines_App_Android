@@ -1,12 +1,17 @@
 package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
+import android.os.Environment;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -21,6 +26,7 @@ public class Helper_JSONReader_Singleton {
     }
 
     private Context mContext;
+    private File root = Environment.getRootDirectory();
 
     private Helper_JSONReader_Singleton() {
     }
@@ -30,34 +36,32 @@ public class Helper_JSONReader_Singleton {
     }
 
     public JSONObject getJSONObjFromFile(String filename){
-        String json;
         JSONObject jsonObj = new JSONObject();
 
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = null;
+        // Get internal storage path
+        String path = mContext.getFilesDir().getAbsolutePath()+"/"+filename;
+        FileInputStream fis;
+        String content = "";
         try {
-            br = new BufferedReader(new InputStreamReader(mContext.getResources().openRawResource(
-                    mContext.getResources().getIdentifier(filename, "raw", mContext.getPackageName()))));
-
-            String temp;
-            while ((temp = br.readLine()) != null)
-                sb.append(temp);
+            // Directs inputstream to internal file storage
+            // Can be replaced with a directory to raw.res if you have files stored in app that won't change
+            fis = new FileInputStream(path);
+            byte[] input = new byte[fis.available()];
+            while (fis.read(input) != -1) {
+                content += new String(input);
+            }
+            jsonObj = new JSONObject(content);
+            fis.close();
         }
-        catch (IOException e) {
+        catch (IOException|JSONException e) {
             e.printStackTrace();
         }
-        finally {
-            try {
-                br.close(); // stop reading
-                json = sb.toString();
-                jsonObj = new JSONObject(json);
-            } catch (IOException|JSONException e) {
-                e.printStackTrace();
-            }
-        }
+
         return jsonObj;
     }
 
+    // Gets a JSONObject from a JSONObject.
+    // Probably not needed, really.
     public JSONObject getJSONObjFromJSON(JSONObject incomingJSON, String neededObj){
         JSONObject returnJSON = new JSONObject();
 
@@ -70,34 +74,31 @@ public class Helper_JSONReader_Singleton {
         return returnJSON;
     }
 
+    // Gets a specific array in a JSONFile in internal storage
     public JSONArray getJSONArrayFromFile(String filename, String neededArray){
-        String json;
-        JSONObject jsonObj;
         JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObj;
 
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = null;
+        // Get internal storage path
+        String path = mContext.getFilesDir().getAbsolutePath()+"/"+filename;
+        FileInputStream fis;
+        String content = "";
         try {
-            br = new BufferedReader(new InputStreamReader(mContext.getResources().openRawResource(
-                    mContext.getResources().getIdentifier(filename, "raw", mContext.getPackageName()))));
-
-            String temp;
-            while ((temp = br.readLine()) != null)
-                sb.append(temp);
+            // Directs inputstream to internal file storage
+            // Can be replaced with a directory to raw.res if you have files stored in app that won't change
+            fis = new FileInputStream(path);
+            byte[] input = new byte[fis.available()];
+            while (fis.read(input) != -1) {
+                content += new String(input);
+            }
+            jsonObj = new JSONObject(content);
+            jsonArray = jsonObj.getJSONArray(neededArray);
+            fis.close();
         }
-        catch (IOException e) {
+        catch (IOException|JSONException e) {
             e.printStackTrace();
         }
-        finally {
-            try {
-                br.close(); // stop reading
-                json = sb.toString();
-                jsonObj = new JSONObject(json);
-                jsonArray = jsonObj.getJSONArray(neededArray);
-            } catch (IOException|JSONException e) {
-                e.printStackTrace();
-            }
-        }
+
         return jsonArray;
     }
 

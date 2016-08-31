@@ -1,36 +1,23 @@
 package com.jgwines.JGWinesPortfolio;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-
-public class Activity_Main extends AppCompatActivity implements View.OnClickListener{
-
-    Button b_enterPortfolio;
+public class Activity_Main extends AppCompatActivity{
     Button b_newVintages;
     Button b_regions;
     Button b_allWines;
     Button b_aboutJGW;
-    ScrollView fragmentSS;
+    NestedScrollView fragmentSS;
     Helper_JSONReader_Singleton jsonReader_singleton;
-    ServerRequest_VersionCheck checkVersion;
     int fragmentIndicator;
 
     F_News f_newVintages;
@@ -38,28 +25,18 @@ public class Activity_Main extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_initial);
+        setContentView(R.layout.activity_main);
 
         jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
 
-        new ServerRequest_VersionCheck(this).execute("version");
-
-        b_enterPortfolio = (Button) findViewById(R.id.enterPortfolio);
-        b_enterPortfolio.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v){
-        setContentView(R.layout.activity_main);
         prepButtons();
 
         fragmentIndicator = 1;
         f_newVintages = F_News.newInstance();
-
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragmentsGoHere, f_newVintages).commit();
-        fragmentSS = (ScrollView) findViewById(R.id.fragmentsGoHere);
+        fragmentSS = (NestedScrollView) findViewById(R.id.fragmentsGoHere);
         fragmentSS.setTag("news");
     }
 

@@ -32,7 +32,6 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
 
             newVintageTitle = (TextView) itemView.findViewById(R.id.wineTitle_News);
             newVintageVineyard = (TextView) itemView.findViewById(R.id.vineyard_News);
-            newVintageLabel = (ImageView) itemView.findViewById(R.id.labelImage_News);
             newVintageLL = (LinearLayout) itemView.findViewById(R.id.newVintage);
             newVintageLL.setOnClickListener(this);
         }

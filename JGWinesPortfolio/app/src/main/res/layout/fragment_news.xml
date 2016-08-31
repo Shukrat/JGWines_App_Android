@@ -40,8 +40,7 @@
         android:elevation="4dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="20dp">
+        android:layout_marginStart="10dp">
 
         <TextView
             android:text="New Vintages"

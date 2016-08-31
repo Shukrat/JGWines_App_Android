@@ -13,12 +13,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Activity_WineDisplay extends AppCompatActivity {
+    Helper_ServerImageRequest imageRequest;
     Helper_JSONReader_Singleton jsonReader_singleton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wine_display);
+
 
         Intent intent = getIntent();
         String key = intent.getStringExtra("key");
@@ -31,6 +33,8 @@ public class Activity_WineDisplay extends AppCompatActivity {
         TextView wineTitle = (TextView) this.findViewById(R.id.wineName_WineDisplay);
         TextView vineyard = (TextView) this.findViewById(R.id.vineyardName_WineDisplay);
         ImageView label = (ImageView) this.findViewById(R.id.labelImage_WineDisplay);
+        imageRequest = new Helper_ServerImageRequest(this, label);
+
 
         // Set jsonObject to the wine to be displayed - narrow down information being passed
         // Set content for Title, Vineyard, and Label Image
@@ -38,8 +42,9 @@ public class Activity_WineDisplay extends AppCompatActivity {
             jsonObject = jsonObject.getJSONObject("wines").getJSONObject(key);
             wineTitle.setText(jsonObject.getString("title"));
             vineyard.setText(jsonObject.getString("vineyard"));
-            String labelname = jsonObject.getString("label_image");
-            label.setImageResource(getResources().getIdentifier("com.jgwines.JGWinesPortfolio:drawable/" + labelname, null, null));
+            //String labelname = jsonObject.getString("label_image");
+            imageRequest.execute(jsonObject.getString("label_image"));
+            //label.setImageResource(getResources().getIdentifier("com.jgwines.JGWinesPortfolio:drawable/" + labelname, null, null));
         } catch (JSONException e){
             e.printStackTrace();
         }
