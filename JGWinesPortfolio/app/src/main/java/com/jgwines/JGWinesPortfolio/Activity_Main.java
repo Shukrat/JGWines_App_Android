@@ -3,7 +3,9 @@ package com.jgwines.JGWinesPortfolio;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,48 @@ import android.widget.Button;
 import android.widget.ScrollView;
 
 public class Activity_Main extends AppCompatActivity{
+
+    public static class PagerAdapter extends FragmentPagerAdapter{
+        private static int NUM_ITEMS = 4;
+
+        public PagerAdapter(android.support.v4.app.FragmentManager fragmentManager){
+            super(fragmentManager);
+        }
+
+        @Override
+        public int getCount(){
+            return NUM_ITEMS;
+        }
+
+        @Override
+        public Fragment getItem(int position){
+            switch(position){
+                case 0:
+                    return F_News.newInstance();
+                case 1:
+                    return F_Regions.newInstance();
+                case 2:
+                    return F_AllWines.newInstance();
+                case 3:
+                    return F_AboutJGWines.newInstance();
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position){
+            switch (position){
+                case 0: return "News";
+                case 1: return "Regions";
+                case 2: return "All\nWines";
+                case 3: return "About\nJG Wines";
+                default: return null;
+            }
+        }
+    }
+
+
     Button b_newVintages;
     Button b_regions;
     Button b_allWines;
@@ -19,6 +63,7 @@ public class Activity_Main extends AppCompatActivity{
     NestedScrollView fragmentSS;
     Helper_JSONReader_Singleton jsonReader_singleton;
     int fragmentIndicator;
+    PagerAdapter pagerAdapter;
 
     F_News f_newVintages;
 
@@ -29,15 +74,18 @@ public class Activity_Main extends AppCompatActivity{
 
         jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.main_ViewPager);
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(0);
+        //prepButtons();
 
-        prepButtons();
-
-        fragmentIndicator = 1;
-        f_newVintages = F_News.newInstance();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragmentsGoHere, f_newVintages).commit();
-        fragmentSS = (NestedScrollView) findViewById(R.id.fragmentsGoHere);
-        fragmentSS.setTag("news");
+        //fragmentIndicator = 1;
+        //f_newVintages = F_News.newInstance();
+        //getSupportFragmentManager().beginTransaction()
+                //.add(R.id.fragmentsGoHere, f_newVintages).commit();
+        //fragmentSS = (NestedScrollView) findViewById(R.id.fragmentsGoHere);
+        //fragmentSS.setTag("news");
     }
 
     @Override
@@ -46,27 +94,20 @@ public class Activity_Main extends AppCompatActivity{
         if(index >= 0) {
             FragmentManager.BackStackEntry backEntry = getSupportFragmentManager().getBackStackEntryAt(index);
             String tag = backEntry.getName();
-            colorButtons(tag);
+            //colorButtons(tag);
         }
 
         super.onBackPressed();
     }
 
-    public void prepButtons(){
-        b_newVintages = (Button) findViewById(R.id.button_newVintages);
-        b_regions = (Button) findViewById(R.id.button_regions);
-        b_allWines = (Button) findViewById(R.id.button_allWines);
-        b_aboutJGW = (Button) findViewById(R.id.button_aboutJGWines);
-    }
-
-    public void changeFragment(Fragment fragment, String name){
+    /*public void changeFragment(Fragment fragment, String name){
         FragmentTransaction transactor = getSupportFragmentManager().beginTransaction();
         transactor.replace(R.id.fragmentsGoHere, fragment);
         transactor.addToBackStack(name);
         transactor.commit();
-    }
+    }*/
 
-    public void colorButtons(String string){
+    /*public void colorButtons(String string){
         b_newVintages.setTextColor(getResources().getColor(R.color.backgroundColor));
         b_regions.setTextColor(getResources().getColor(R.color.backgroundColor));
         b_allWines.setTextColor(getResources().getColor(R.color.backgroundColor));
@@ -144,5 +185,5 @@ public class Activity_Main extends AppCompatActivity{
                 break;
         }
         colorButtons((String) fragmentSS.getTag());
-    }
+    }*/
 }

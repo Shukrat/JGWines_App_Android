@@ -13,8 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Locale;
-
 /**
  * Created by Shukrat on 8/27/2016.
  */
@@ -35,7 +33,6 @@ public class Adapter_Tastings extends RecyclerView.Adapter<Adapter_Tastings.View
             tastingLocation = (TextView) itemView.findViewById(R.id.tastingLocation);
             tastingLocation.setOnClickListener(this);
             tastingPhone = (TextView) itemView.findViewById(R.id.tastingPhone);
-
         }
 
         @Override
@@ -44,7 +41,9 @@ public class Adapter_Tastings extends RecyclerView.Adapter<Adapter_Tastings.View
             String locationParsed = location.replace(" ", "+").replace(",", "%2C");
             String uri = "geo:0,0?q=" + locationParsed;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            mContext.startActivity(intent);
+            if(intent.resolveActivity(mContext.getPackageManager()) != null) {
+                mContext.startActivity(intent);
+            }
         }
     }
 
