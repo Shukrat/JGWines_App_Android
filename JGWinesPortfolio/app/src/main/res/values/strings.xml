@@ -9,6 +9,13 @@
     <string name="wineLabel_WineDisplay">Wine Label</string>
 
     <!-- About JG Wines Fragment -->
+    <string name="contact">Contact Us</string>
+    <string name="email">Email: </string>
+    <string name="emailaddress">info@jgwines.com</string>
+    <string name="phone">Phone: </string>
+    <string name="phonenumber">(845) 868 3203</string>
+    <string name="fax">Fax: </string>
+    <string name="faxnumber">(845) 868 3205</string>
     <string name="aboutjgw_logodescrip">John Given Wines Logo</string>
     <string name="aboutjgw_johnPicDesc">Picture of John Given</string>
     <string name="aboutjgw_1">“To discover good wine, you really need to love wine. Our mission has always centered on finding wines that are delicious and fun as well as interesting and good value. With so many varieties of wine to sample, I am always looking forward to a new food and wine experience.” \nAnne-Catherine Given</string>
