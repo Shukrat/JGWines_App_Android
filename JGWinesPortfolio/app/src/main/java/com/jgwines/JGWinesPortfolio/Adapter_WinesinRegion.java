@@ -2,6 +2,7 @@ package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -25,8 +26,8 @@ public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinR
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView wineinRegionTitle;
         public TextView wineinRegionVineyard;
-        public Button wineinRegionButton;
         public LinearLayout wineinRegionLayout;
+        public CardView wineColor;
         private Context mContext;
         private String tag;
 
@@ -37,35 +38,29 @@ public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinR
             wineinRegionLayout = (LinearLayout) itemView.findViewById(R.id.wineItemLayout);
             wineinRegionTitle = (TextView) itemView.findViewById(R.id.wineName_AllWinesList);
             wineinRegionVineyard = (TextView) itemView.findViewById(R.id.wineVineyard_AllWinesList);
-            wineinRegionButton = (Button) itemView.findViewById(R.id.detailsButton_AllWinesList);
-            wineinRegionButton.setOnClickListener(this);
+            wineColor = (CardView) itemView.findViewById(R.id.wineColor_WineItem);
+            wineinRegionLayout.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v){
-            tag = (String) wineinRegionButton.getTag();
+            tag = (String) wineinRegionLayout.getTag();
             Intent i = new Intent(mContext, Activity_WineDisplay.class);
             i.putExtra("key", tag);
             mContext.startActivity(i);
         }
     }
 
-    private LinearLayout.LayoutParams layoutParams;
     private JSONObject winesJSON;
     private JSONArray key;
     private Context mContext;
     private ArrayList<String> wineinJSON = new ArrayList<String>();
     private ArrayList<String> wineTitles = new ArrayList<String>();
     private ArrayList<String> wineVineyards = new ArrayList<String>();
+    private ArrayList<String> wineTypes = new ArrayList<String>();
 
     public Adapter_WinesinRegion(JSONObject _allWinesJSON, String region, Context context){
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         mContext = context;
-        layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                (int)((90 * displayMetrics.density) + 0.5)
-        );
-        layoutParams.setMargins(0, 15, 0, 0);
         try{
             key = _allWinesJSON.getJSONArray("key");
             winesJSON = _allWinesJSON.getJSONObject("wines");
@@ -76,7 +71,7 @@ public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinR
                     wineinJSON.add(wine);
                     wineTitles.add((String) winesJSON.getJSONObject(wine).get("title"));
                     wineVineyards.add((String) winesJSON.getJSONObject(wine).get("vineyard"));
-
+                    wineTypes.add((String) winesJSON.getJSONObject(wine).get("type"));
                 }
             }
         } catch(JSONException e){
@@ -98,16 +93,30 @@ public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinR
         String wineNameinJSON = wineinJSON.get(position);
         String title = wineTitles.get(position);
         String vineyard = wineVineyards.get(position);
+        String type = wineTypes.get(position);
 
-        LinearLayout layout = viewHolder.wineinRegionLayout;
         TextView wineName = viewHolder.wineinRegionTitle;
         TextView vineyardName = viewHolder.wineinRegionVineyard;
-        Button details = viewHolder.wineinRegionButton;
+        LinearLayout wineinRegionLL = viewHolder.wineinRegionLayout;
+        CardView wineColor = viewHolder.wineColor;
+
         wineName.setText(title);
         vineyardName.setText(vineyard);
-        details.setTag(wineNameinJSON);
-        layout.setElevation(4);
-        layout.setLayoutParams(layoutParams);
+        wineinRegionLL.setTag(wineNameinJSON);
+
+        switch(type){
+            case "rose":
+                wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.roseWine));
+                break;
+            case "white":
+                wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.whiteWine));
+                break;
+            case "red":
+                wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.redWine));
+                break;
+            default:
+                break;
+        }
     }
 
     @Override

@@ -23,7 +23,6 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
         public TextView newVintageTitle;
         public TextView newVintageVineyard;
         public LinearLayout newVintageLL;
-        public Button newVintageButton;
         private Context mContext;
 
         public ViewHolder(View itemView, Context context){
@@ -32,10 +31,8 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
 
             newVintageTitle = (TextView) itemView.findViewById(R.id.wineName_AllWinesList);
             newVintageVineyard = (TextView) itemView.findViewById(R.id.wineVineyard_AllWinesList);
-            newVintageButton = (Button) itemView.findViewById(R.id.detailsButton_AllWinesList);
             newVintageLL = (LinearLayout) itemView.findViewById(R.id.wineItemLayout);
             newVintageLL.setOnClickListener(this);
-            newVintageButton.setOnClickListener(this);
         }
 
         @Override

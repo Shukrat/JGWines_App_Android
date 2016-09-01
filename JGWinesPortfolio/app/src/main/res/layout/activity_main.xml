@@ -10,7 +10,6 @@
         android:id="@+id/main_ViewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
         android:isScrollContainer="true">
 
         <android.support.v4.view.PagerTabStrip

@@ -6,6 +6,7 @@
     android:id="@+id/winesinRegionLL"
     android:background="@color/backgroundColor"
     android:weightSum="3"
+    android:elevation="4dp"
     android:layout_marginTop="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp">
@@ -13,8 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/regionBackground"
-        android:elevation="4dp">
+        android:background="@color/regionBackground">
         <TextView
             android:id="@+id/regionName_RegionsList"
             android:textSize="20sp"
@@ -28,15 +28,15 @@
             android:paddingEnd="20dp"
             android:paddingStart="15dp"/>
 
-        <Button
-            android:text="@string/showWinesButton"
+        <ImageView
             android:id="@+id/regionButton_RegionsList"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="#999999"
-            android:padding="5dp"
-            android:layout_marginEnd="15dp"
-            android:layout_gravity="center_vertical"/>
+            android:src="@drawable/down"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="16dp"
+            />
+
 
     </LinearLayout>
 

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -20,7 +22,8 @@ public class Adapter_Regions extends RecyclerView.Adapter<Adapter_Regions.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView regionTextView;
-        public Button regionButton;
+        public ImageView regionImage;
+        public LinearLayout winesinRegionLL;
         public RecyclerView wineinRegion;
 
         public ViewHolder(View itemView) {
@@ -29,20 +32,21 @@ public class Adapter_Regions extends RecyclerView.Adapter<Adapter_Regions.ViewHo
             super(itemView);
 
             regionTextView = (TextView) itemView.findViewById(R.id.regionName_RegionsList);
-            regionButton = (Button) itemView.findViewById(R.id.regionButton_RegionsList);
+            regionImage = (ImageView) itemView.findViewById(R.id.regionButton_RegionsList);
             wineinRegion = (RecyclerView) itemView.findViewById(R.id.rvWinesinRegion);
-            regionButton.setOnClickListener(this);
+            winesinRegionLL = (LinearLayout) itemView.findViewById(R.id.winesinRegionLL);
+            winesinRegionLL.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v){
             if(wineinRegion.getVisibility() == View.GONE) {
                 wineinRegion.setVisibility(View.VISIBLE);
-                regionButton.setText(R.string.hideWines_RegionsAdapter);
+                regionImage.setImageDrawable(itemView.getResources().getDrawable(R.drawable.up));
             }
             else if(wineinRegion.getVisibility() == View.VISIBLE){
                 wineinRegion.setVisibility(View.GONE);
-                regionButton.setText(R.string.showWines_RegionsAdapter);
+                regionImage.setImageDrawable(itemView.getResources().getDrawable(R.drawable.down));
             }
         }
     }
@@ -73,12 +77,10 @@ public class Adapter_Regions extends RecyclerView.Adapter<Adapter_Regions.ViewHo
             String regionTitle = regions.getString(position);
 
             TextView regionName = viewHolder.regionTextView;
-            Button regionButton = viewHolder.regionButton;
             RecyclerView winesinRegion = viewHolder.wineinRegion;
 
             winesinRegion.setVisibility(View.GONE);
             regionName.setText(regionTitle);
-            regionButton.setTag(regionTitle);
 
             winesinRegion.setAdapter(new Adapter_WinesinRegion(wines, regionTitle, mContext));
             RecyclerView.LayoutManager winesinRegionLM = new LinearLayoutManager(mContext);

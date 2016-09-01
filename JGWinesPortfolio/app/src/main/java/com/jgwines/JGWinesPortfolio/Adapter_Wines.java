@@ -3,11 +3,13 @@ package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -22,7 +24,8 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView wineTextView;
         public TextView vineyardTextView;
-        public Button detailsButton;
+        public LinearLayout wineItemLayout;
+        public CardView wineColor;
         private Context mContext;
         private String tag;
 
@@ -34,13 +37,14 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
 
             wineTextView = (TextView) itemView.findViewById(R.id.wineName_AllWinesList);
             vineyardTextView = (TextView) itemView.findViewById(R.id.wineVineyard_AllWinesList);
-            detailsButton = (Button) itemView.findViewById(R.id.detailsButton_AllWinesList);
-            detailsButton.setOnClickListener(this);
+            wineColor = (CardView) itemView.findViewById(R.id.wineColor_WineItem);
+            wineItemLayout = (LinearLayout) itemView.findViewById(R.id.wineItemLayout);
+            wineItemLayout.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v){
-            tag = (String) detailsButton.getTag();
+            tag = (String) wineItemLayout.getTag();
             Intent i = new Intent(mContext, Activity_WineDisplay.class);
             i.putExtra("key", tag);
             mContext.startActivity(i);
@@ -78,10 +82,27 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
 
             TextView wineName = viewHolder.wineTextView;
             TextView vineyardName = viewHolder.vineyardTextView;
-            Button details = viewHolder.detailsButton;
+            LinearLayout wineItemLayout = viewHolder.wineItemLayout;
+            CardView wineColor = viewHolder.wineColor;
+
             wineName.setText(winesJSON.getJSONObject(key).getString("title"));
             vineyardName.setText(winesJSON.getJSONObject(key).getString("vineyard"));
-            details.setTag(key);
+            wineItemLayout.setTag(key);
+
+            String type = winesJSON.getJSONObject(key).getString("type");
+            switch(type){
+                case "rose":
+                    wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.roseWine));
+                    break;
+                case "white":
+                    wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.whiteWine));
+                    break;
+                case "red":
+                    wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.redWine));
+                    break;
+                default:
+                    break;
+            }
 
         } catch (JSONException e){
             e.printStackTrace();
