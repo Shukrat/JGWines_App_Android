@@ -9,7 +9,7 @@ import android.os.Bundle;
 public class Activity_Main extends AppCompatActivity{
 
     public static class PagerAdapter extends FragmentPagerAdapter{
-        private static int NUM_ITEMS = 4;
+        private static final int NUM_ITEMS = 4;
 
         public PagerAdapter(android.support.v4.app.FragmentManager fragmentManager){
             super(fragmentManager);
@@ -48,8 +48,8 @@ public class Activity_Main extends AppCompatActivity{
         }
     }
 
-    Helper_JSONReader_Singleton jsonReader_singleton;
-    PagerAdapter pagerAdapter;
+    private Helper_JSONReader_Singleton jsonReader_singleton;
+    private PagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

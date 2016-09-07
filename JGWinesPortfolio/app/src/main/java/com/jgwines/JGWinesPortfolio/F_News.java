@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class F_News extends Fragment {
     private RecyclerView newVintageRecycler;
     private RecyclerView tastingsRecycler;
-    Helper_JSONReader_Singleton jsonReader_singleton;
+    private Helper_JSONReader_Singleton jsonReader_singleton;
 
     public static F_News newInstance() {
         return new F_News();

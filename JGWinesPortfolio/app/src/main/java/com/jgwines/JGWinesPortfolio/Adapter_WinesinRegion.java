@@ -2,13 +2,12 @@ package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,11 +23,11 @@ import java.util.ArrayList;
 public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinRegion.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView wineinRegionTitle;
-        public TextView wineinRegionVineyard;
-        public LinearLayout wineinRegionLayout;
-        public CardView wineColor;
-        private Context mContext;
+        public final TextView wineinRegionTitle;
+        public final TextView wineinRegionVineyard;
+        public final LinearLayout wineinRegionLayout;
+        public final CardView wineColor;
+        private final Context mContext;
         private String tag;
 
         public ViewHolder(View itemView, Context context){
@@ -51,19 +50,17 @@ public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinR
         }
     }
 
-    private JSONObject winesJSON;
-    private JSONArray key;
-    private Context mContext;
-    private ArrayList<String> wineinJSON = new ArrayList<String>();
-    private ArrayList<String> wineTitles = new ArrayList<String>();
-    private ArrayList<String> wineVineyards = new ArrayList<String>();
-    private ArrayList<String> wineTypes = new ArrayList<String>();
+    private final Context mContext;
+    private final ArrayList<String> wineinJSON = new ArrayList<>();
+    private final ArrayList<String> wineTitles = new ArrayList<>();
+    private final ArrayList<String> wineVineyards = new ArrayList<>();
+    private final ArrayList<String> wineTypes = new ArrayList<>();
 
     public Adapter_WinesinRegion(JSONObject _allWinesJSON, String region, Context context){
         mContext = context;
         try{
-            key = _allWinesJSON.getJSONArray("key");
-            winesJSON = _allWinesJSON.getJSONObject("wines");
+            JSONArray key = _allWinesJSON.getJSONArray("key");
+            JSONObject winesJSON = _allWinesJSON.getJSONObject("wines");
 
             for(int i = 0; i < key.length(); i++){
                 String wine = key.getString(i);
@@ -106,13 +103,13 @@ public class Adapter_WinesinRegion extends RecyclerView.Adapter<Adapter_WinesinR
 
         switch(type){
             case "rose":
-                wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.roseWine));
+                wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.roseWine));
                 break;
             case "white":
-                wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.whiteWine));
+                wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.whiteWine));
                 break;
             case "red":
-                wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.redWine));
+                wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.redWine));
                 break;
             default:
                 break;

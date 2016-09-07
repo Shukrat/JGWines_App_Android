@@ -20,23 +20,21 @@ import java.util.ArrayList;
 public class Adapter_WineDetails extends RecyclerView.Adapter<Adapter_WineDetails.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView wineDetailTitle;
-        public TextView wineDetailContent;
-        public LinearLayout wineDetailLayout;
+        public final TextView wineDetailTitle;
+        public final TextView wineDetailContent;
 
         public ViewHolder(View itemView){
             super(itemView);
 
-            wineDetailLayout = (LinearLayout) itemView.findViewById(R.id.detailLayout_WineDisplay);
             wineDetailTitle = (TextView) itemView.findViewById(R.id.detailTitle_WineDisplay);
             wineDetailContent = (TextView) itemView.findViewById(R.id.detailContent_WineDisplay);
         }
     }
 
-    private JSONObject wineInfoJSON;
-    private JSONArray wineDetailsKeyJSONARRAY;
-    private ArrayList<String> wineInfoArray = new ArrayList<String>();
-    private ArrayList<String> wineInfoKeyArray = new ArrayList<String>();
+    private final JSONObject wineInfoJSON;
+    private final JSONArray wineDetailsKeyJSONARRAY;
+    private final ArrayList<String> wineInfoArray = new ArrayList<>();
+    private final ArrayList<String> wineInfoKeyArray = new ArrayList<>();
 
     public Adapter_WineDetails(JSONObject _wineDetailsJSON, JSONArray _wineDetailsKey){
         wineInfoJSON = _wineDetailsJSON;
@@ -76,7 +74,7 @@ public class Adapter_WineDetails extends RecyclerView.Adapter<Adapter_WineDetail
     public int getItemCount() { return wineInfoArray.size(); }
 
     // Parses the wines.json file to pull out information and store it in Strings created in global space
-    public void parseWineInfo(){
+    private void parseWineInfo(){
         try {
             for(int i = 0; i < wineDetailsKeyJSONARRAY.length(); i++){
                 String key = wineDetailsKeyJSONARRAY.getString(i);

@@ -18,7 +18,7 @@ public class F_Regions extends Fragment {
     private JSONArray regionsArr;
     private JSONObject winesObj;
     private RecyclerView regionsRecycler;
-    Helper_JSONReader_Singleton jsonReader_singleton;
+    private Helper_JSONReader_Singleton jsonReader_singleton;
 
     public static F_Regions newInstance() {
         return new F_Regions();

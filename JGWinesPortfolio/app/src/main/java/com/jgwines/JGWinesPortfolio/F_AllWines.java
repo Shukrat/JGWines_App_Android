@@ -15,7 +15,7 @@ import org.json.JSONObject;
  */
 public class F_AllWines extends Fragment{
     private RecyclerView winesRecycler;
-    Helper_JSONReader_Singleton jsonReader_singleton;
+    private Helper_JSONReader_Singleton jsonReader_singleton;
 
 
     public static F_AllWines newInstance() {

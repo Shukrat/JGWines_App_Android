@@ -22,8 +22,8 @@ public class F_AboutJGWines extends Fragment {
     public F_AboutJGWines() {
     }
 
-    TextView call;
-    TextView email;
+    private TextView call;
+    private TextView email;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

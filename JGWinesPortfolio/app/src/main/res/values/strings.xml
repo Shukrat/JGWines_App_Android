@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JG Wines Portfolio</string>
+    <string name="app_name">John Given Wines</string>
     <!-- Initial Activity -->
     <string name="jgwines_initial">John Given Wines, Inc.</string>
     <string name="jgwinesSub_initial">Importer of Fine Italian Wines</string>
@@ -18,27 +18,18 @@
     <string name="faxnumber">(845) 868 3205</string>
     <string name="aboutjgw_logodescrip">John Given Wines Logo</string>
     <string name="aboutjgw_johnPicDesc">Picture of John Given</string>
+    <string name="aboutjgw_history">History</string>
     <string name="aboutjgw_1">“To discover good wine, you really need to love wine. Our mission has always centered on finding wines that are delicious and fun as well as interesting and good value. With so many varieties of wine to sample, I am always looking forward to a new food and wine experience.” \nAnne-Catherine Given</string>
     <string name="aboutjgw_2">John Given Wines, Inc. was founded in 1997. Since then, the small, personal importing company has been dedicated to introducing a carefully-selected portfolio of new, different, high-quality and good-value Italian wines to the United States. Today, its distribution network covers twenty-four states (not counting the Virgin Islands). \n\nFounded by John and Anne-Catherine Given, it has grown its portfolio over the years to include over 30 different Italian wines.</string>
-    <string name="aboutjgw_remember">In Remembrance...</string>
+    <string name="aboutjgw_remember">In Remembrance…</string>
     <string name="aboutjgw_3">While on a business trip to Arizona in October 2007, John was diagnosed with acute leukemia. His death three weeks later came as a shock to all who knew him. To say he is missed is an understatement. Anne-Catherine continues to manage and develop the company she and John founded together.</string>
 
     <!-- News Fragment -->
     <string name="news_upcomingtastings">Upcoming Tastings</string>
     <string name="news_newvintages">New Wines</string>
 
-    <!-- Region Item -->
-    <string name="showWinesButton">Show Wines</string>
-
-    <!-- Regions Adapter -->
-    <string name="hideWines_RegionsAdapter">Hide Wines</string>
-    <string name="showWines_RegionsAdapter">Show Wines</string>
-
     <!-- Tasting Item -->
     <string name="tasting_time">Time: </string>
     <string name="tasting_location">Location: </string>
     <string name="tasting_phone">Phone: </string>
-
-    <!-- Wine Item -->
-    <string name="detailsButton">Details</string>
 </resources>

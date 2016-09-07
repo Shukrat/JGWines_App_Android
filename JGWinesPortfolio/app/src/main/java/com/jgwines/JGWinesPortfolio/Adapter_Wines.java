@@ -3,12 +3,12 @@ package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,11 +22,11 @@ import org.json.JSONObject;
 public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView wineTextView;
-        public TextView vineyardTextView;
-        public LinearLayout wineItemLayout;
-        public CardView wineColor;
-        private Context mContext;
+        public final TextView wineTextView;
+        public final TextView vineyardTextView;
+        public final LinearLayout wineItemLayout;
+        public final CardView wineColor;
+        private final Context mContext;
         private String tag;
 
         public ViewHolder(final View itemView, Context context) {
@@ -53,7 +53,7 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
 
     private JSONObject winesJSON;
     private JSONArray allWinesKey;
-    private Context mContext;
+    private final Context mContext;
 
     public Adapter_Wines(JSONObject _allWinesJSON, Context context){
         mContext = context;
@@ -92,13 +92,13 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
             String type = winesJSON.getJSONObject(key).getString("type");
             switch(type){
                 case "rose":
-                    wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.roseWine));
+                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.roseWine));
                     break;
                 case "white":
-                    wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.whiteWine));
+                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.whiteWine));
                     break;
                 case "red":
-                    wineColor.setCardBackgroundColor(mContext.getResources().getColor(R.color.redWine));
+                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.redWine));
                     break;
                 default:
                     break;

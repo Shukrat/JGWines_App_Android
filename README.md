@@ -1,4 +1,4 @@
-# John Given Wines, Inc. Wine Portfolio v1.0
+# John Given Wines, Inc. Wine Portfolio v1.1
 ### For Android
 A portfolio app for John Given Wines, Inc. displaying all their wines. Setup in a way to allow modification to content of app without having to change code. Person doing maintenance (updating wines, regions, tastings, etc) does not code Android, so updating a simple JSON file will make it possible to keep a clean looking app up to date.  JSON files will also be used for the John Given Wines website to load content, thus making it possible to only update files in one location to update this app and the website.
 
@@ -28,6 +28,8 @@ Helper_JSONReader_Singleton:
   
 Helper_ServerImageRequest:  
 - Used to get wine label from server when entering Wine Information Activity.  
+- If the server can't be reached, displays the JG Wines logo instead.  
   
 Helper_ServerFileRequest:  
-- Used in Initial Activity to first check versions, then download all JSON files if versions mismatch.
+- Used in Initial Activity to first check versions, then download all JSON files if versions mismatch.  
+- If server can't be reached, tells user via Toast, then loads previous available data on device.

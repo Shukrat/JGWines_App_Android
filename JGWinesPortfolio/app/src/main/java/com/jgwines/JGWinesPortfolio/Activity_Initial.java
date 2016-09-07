@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Created by Shukrat on 8/31/2016.
  */
 public class Activity_Initial extends AppCompatActivity implements Interface_ServerFileRequestResponse{
-    Helper_ServerFileRequest fileChecker = new Helper_ServerFileRequest(this);
-    Helper_JSONReader_Singleton jsonReader_singleton;
+    private final Helper_ServerFileRequest fileChecker = new Helper_ServerFileRequest(this);
+    private Helper_JSONReader_Singleton jsonReader_singleton;
 
-    Button b_enterPortfolio;
+    private Button b_enterPortfolio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +40,22 @@ public class Activity_Initial extends AppCompatActivity implements Interface_Ser
 
     @Override
     public void processFinished(String output){
-        if(output.equals("match")){
-            b_enterPortfolio.setVisibility(View.VISIBLE);
+        switch (output) {
+            case "match":
+                b_enterPortfolio.setVisibility(View.VISIBLE);
+                break;
+            case "mismatch":
+                String[] getJSONs = {"tastings", "regions", "wines"};
+                for (String getJSON : getJSONs) {
+                    Helper_ServerFileRequest downloadnewJSON = new Helper_ServerFileRequest(this);
+                    downloadnewJSON.delegate = this;
+                    downloadnewJSON.execute(getJSON);
+                }
+                break;
+            case "No Server Connection":
+                Toast.makeText(this, "Unable to check for updates. Most recent version of portfolio loaded.", Toast.LENGTH_LONG).show();
+                b_enterPortfolio.setVisibility(View.VISIBLE);
+                break;
         }
-        else if(output.equals("mismatch")){
-            String[] getJSONs = {"tastings", "regions", "wines"};
-            for(int i = 0; i < getJSONs.length; i++) {
-                Helper_ServerFileRequest downloadnewJSON = new Helper_ServerFileRequest(this);
-                downloadnewJSON.delegate = this;
-                downloadnewJSON.execute(getJSONs[i]);
-            }
-        }
-        else{}
     }
 }

@@ -2,11 +2,12 @@ package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,10 +21,11 @@ import org.json.JSONObject;
 public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView newVintageTitle;
-        public TextView newVintageVineyard;
-        public LinearLayout newVintageLL;
-        private Context mContext;
+        public final TextView newVintageTitle;
+        public final TextView newVintageVineyard;
+        public final LinearLayout newVintageLL;
+        public final CardView wineColor;
+        private final Context mContext;
 
         public ViewHolder(View itemView, Context context){
             super(itemView);
@@ -31,6 +33,7 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
 
             newVintageTitle = (TextView) itemView.findViewById(R.id.wineName_AllWinesList);
             newVintageVineyard = (TextView) itemView.findViewById(R.id.wineVineyard_AllWinesList);
+            wineColor = (CardView) itemView.findViewById(R.id.wineColor_WineItem);
             newVintageLL = (LinearLayout) itemView.findViewById(R.id.wineItemLayout);
             newVintageLL.setOnClickListener(this);
         }
@@ -46,7 +49,7 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
 
     private JSONObject winesJSON;
     private JSONArray newWines;
-    private Context mContext;
+    private final Context mContext;
 
     public Adapter_NewVintage(JSONObject _allWinesJSON, Context context){
         mContext = context;
@@ -76,10 +79,26 @@ public class Adapter_NewVintage extends RecyclerView.Adapter<Adapter_NewVintage.
             LinearLayout newVintage = viewHolder.newVintageLL;
             TextView wineName = viewHolder.newVintageTitle;
             TextView vineyardName = viewHolder.newVintageVineyard;
+            CardView wineColor = viewHolder.wineColor;
 
             wineName.setText(winesJSON.getJSONObject(key).getString("title"));
             vineyardName.setText(winesJSON.getJSONObject(key).getString("vineyard"));
             newVintage.setTag(key);
+
+            String type = winesJSON.getJSONObject(key).getString("type");
+            switch(type){
+                case "rose":
+                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.roseWine));
+                    break;
+                case "white":
+                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.whiteWine));
+                    break;
+                case "red":
+                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.redWine));
+                    break;
+                default:
+                    break;
+            }
         } catch (JSONException e){
             e.printStackTrace();
         }

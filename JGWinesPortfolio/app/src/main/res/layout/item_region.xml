@@ -6,7 +6,7 @@
     android:id="@+id/winesinRegionLL"
     android:background="@color/backgroundColor"
     android:weightSum="3"
-    android:elevation="4dp"
+    android:elevation="2dp"
     android:layout_marginTop="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp">

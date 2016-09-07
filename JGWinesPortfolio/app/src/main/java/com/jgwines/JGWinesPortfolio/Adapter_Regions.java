@@ -1,12 +1,12 @@
 package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,10 +21,10 @@ import org.json.JSONObject;
 public class Adapter_Regions extends RecyclerView.Adapter<Adapter_Regions.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView regionTextView;
-        public ImageView regionImage;
-        public LinearLayout winesinRegionLL;
-        public RecyclerView wineinRegion;
+        public final TextView regionTextView;
+        public final ImageView regionImage;
+        public final LinearLayout winesinRegionLL;
+        public final RecyclerView wineinRegion;
 
         public ViewHolder(View itemView) {
             // Stores the itemView in a public final member variable that can be used
@@ -42,18 +42,18 @@ public class Adapter_Regions extends RecyclerView.Adapter<Adapter_Regions.ViewHo
         public void onClick(View v){
             if(wineinRegion.getVisibility() == View.GONE) {
                 wineinRegion.setVisibility(View.VISIBLE);
-                regionImage.setImageDrawable(itemView.getResources().getDrawable(R.drawable.up));
+                regionImage.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), R.drawable.up));
             }
             else if(wineinRegion.getVisibility() == View.VISIBLE){
                 wineinRegion.setVisibility(View.GONE);
-                regionImage.setImageDrawable(itemView.getResources().getDrawable(R.drawable.down));
+                regionImage.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), R.drawable.down));
             }
         }
     }
 
-    private Context mContext;
-    private JSONArray regions;
-    private JSONObject wines;
+    private final Context mContext;
+    private final JSONArray regions;
+    private final JSONObject wines;
 
     public Adapter_Regions(JSONArray regionsJson, JSONObject winesJson, Context context) {
         mContext = context;

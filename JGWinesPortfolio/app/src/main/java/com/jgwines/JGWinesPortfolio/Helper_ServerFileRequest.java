@@ -17,10 +17,10 @@ import java.net.URL;
 /**
  * Created by Shukrat on 8/29/2016.
  */
-public class Helper_ServerFileRequest extends AsyncTask<String, Void, String> {
+class Helper_ServerFileRequest extends AsyncTask<String, Void, String> {
     public Interface_ServerFileRequestResponse delegate = null;
-    private Context mContext;
-    Helper_JSONReader_Singleton jsonReader_singleton;
+    private final Context mContext;
+    private final Helper_JSONReader_Singleton jsonReader_singleton;
 
     public Helper_ServerFileRequest(Context context){
         mContext = context;
@@ -40,12 +40,12 @@ public class Helper_ServerFileRequest extends AsyncTask<String, Void, String> {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
 
             // Read Server Response
             while ((line = reader.readLine()) != null) {
                 // Append server response in string
-                sb.append(line + "\n");
+                sb.append(line).append("\n");
             }
             reader.close();
             conn.disconnect();
@@ -94,8 +94,8 @@ public class Helper_ServerFileRequest extends AsyncTask<String, Void, String> {
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();
+            return "No Server Connection";
         }
-        return "match";
     }
 
     protected void onPostExecute(String string) {

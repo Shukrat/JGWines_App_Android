@@ -13,8 +13,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Activity_WineDisplay extends AppCompatActivity {
-    Helper_ServerImageRequest imageRequest;
-    Helper_JSONReader_Singleton jsonReader_singleton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +22,7 @@ public class Activity_WineDisplay extends AppCompatActivity {
 
         Intent intent = getIntent();
         String key = intent.getStringExtra("key");
-        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
+        Helper_JSONReader_Singleton jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
         // Use helper to get json object and array from "wines" file
         JSONObject jsonObject = jsonReader_singleton.getJSONObjFromFile("wines");
@@ -33,8 +31,8 @@ public class Activity_WineDisplay extends AppCompatActivity {
         TextView wineTitle = (TextView) this.findViewById(R.id.wineName_WineDisplay);
         TextView vineyard = (TextView) this.findViewById(R.id.vineyardName_WineDisplay);
         ImageView label = (ImageView) this.findViewById(R.id.labelImage_WineDisplay);
-        imageRequest = new Helper_ServerImageRequest(this, label);
 
+        Helper_ServerImageRequest imageRequest = new Helper_ServerImageRequest(label);
 
         // Set jsonObject to the wine to be displayed - narrow down information being passed
         // Set content for Title, Vineyard, and Label Image

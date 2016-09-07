@@ -1,9 +1,9 @@
 package com.jgwines.JGWinesPortfolio;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 
 import java.io.InputStream;
@@ -11,12 +11,10 @@ import java.io.InputStream;
 /**
  * Created by Shukrat on 8/31/2016.
  */
-public class Helper_ServerImageRequest extends AsyncTask<String, Void, Bitmap> {
-    private Context mContext;
-    private ImageView imageView;
+class Helper_ServerImageRequest extends AsyncTask<String, Void, Bitmap> {
+    private final ImageView imageView;
 
-    public Helper_ServerImageRequest(Context context, ImageView _imageView){
-        mContext = context;
+    public Helper_ServerImageRequest(ImageView _imageView){
         imageView = _imageView;
     }
 
@@ -32,12 +30,14 @@ public class Helper_ServerImageRequest extends AsyncTask<String, Void, Bitmap> {
             e.printStackTrace();
         }
         return labelImage;
-
     }
 
     protected void onPostExecute(Bitmap bitmap){
         if(bitmap != null) {
             imageView.setImageBitmap(bitmap);
+        }
+        else{
+            imageView.setImageDrawable(ContextCompat.getDrawable(imageView.getContext(), R.drawable.main_jgwlogo));
         }
     }
 }

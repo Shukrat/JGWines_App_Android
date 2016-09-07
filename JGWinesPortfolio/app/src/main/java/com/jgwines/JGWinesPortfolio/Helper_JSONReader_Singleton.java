@@ -15,14 +15,13 @@ import java.io.IOException;
  * Created by Shukrat on 8/28/2016.
  */
 public class Helper_JSONReader_Singleton {
-    private static Helper_JSONReader_Singleton ourInstance = new Helper_JSONReader_Singleton();
+    private static final Helper_JSONReader_Singleton ourInstance = new Helper_JSONReader_Singleton();
 
     public static Helper_JSONReader_Singleton getInstance() {
         return ourInstance;
     }
 
     private Context mContext;
-    private File root = Environment.getRootDirectory();
 
     private Helper_JSONReader_Singleton() {
     }
@@ -54,20 +53,6 @@ public class Helper_JSONReader_Singleton {
         }
 
         return jsonObj;
-    }
-
-    // Gets a JSONObject from a JSONObject.
-    // Probably not needed, really.
-    public JSONObject getJSONObjFromJSON(JSONObject incomingJSON, String neededObj){
-        JSONObject returnJSON = new JSONObject();
-
-        try{
-            returnJSON = incomingJSON.getJSONObject(neededObj);
-        } catch (JSONException e){
-            e.printStackTrace();
-        }
-
-        return returnJSON;
     }
 
     // Gets a specific array in a JSONFile in internal storage
