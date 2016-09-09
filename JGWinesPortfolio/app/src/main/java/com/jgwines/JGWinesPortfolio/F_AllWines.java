@@ -25,6 +25,7 @@ public class F_AllWines extends Fragment{
     private RecyclerView winesRecycler;
     private Adapter_Wines winesAdapter;
     private JSONArray winesKey;
+    private SearchView searchView;
     private Helper_JSONReader_Singleton jsonReader_singleton;
     private ArrayMap<String, String> searchTerms = new ArrayMap<>();
     private ArrayList<String> winesToDisplay = new ArrayList<>();
@@ -43,7 +44,7 @@ public class F_AllWines extends Fragment{
         jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         final View mView = inflater.inflate(R.layout.fragment_allwines, container, false);
         winesRecycler = (RecyclerView) mView.findViewById(R.id.rvWineList);
-        SearchView searchView = (SearchView) mView.findViewById(R.id.allWines_Search);
+        searchView = (SearchView) mView.findViewById(R.id.allWines_Search);
         searchView.setIconified(false);
         searchView.clearFocus();
 
@@ -129,5 +130,17 @@ public class F_AllWines extends Fragment{
         RecyclerView.LayoutManager winesLayoutManager = new LinearLayoutManager(getActivity());
         winesRecycler.setAdapter(winesAdapter);
         winesRecycler.setLayoutManager(winesLayoutManager);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        searchView.clearFocus();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        searchView.clearFocus();
     }
 }

@@ -4,11 +4,11 @@ package com.jgwines.JGWinesPortfolio;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,7 +26,7 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
         public final TextView wineTextView;
         public final TextView vineyardTextView;
         public final LinearLayout wineItemLayout;
-        public final CardView wineColor;
+        public final ImageView wineColor;
         private final Context mContext;
         private String tag;
 
@@ -38,7 +38,7 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
 
             wineTextView = (TextView) itemView.findViewById(R.id.wineName_AllWinesList);
             vineyardTextView = (TextView) itemView.findViewById(R.id.wineVineyard_AllWinesList);
-            wineColor = (CardView) itemView.findViewById(R.id.wineColor_WineItem);
+            wineColor = (ImageView) itemView.findViewById(R.id.wineColor_WineItem);
             wineItemLayout = (LinearLayout) itemView.findViewById(R.id.wineItemLayout);
             wineItemLayout.setOnClickListener(this);
         }
@@ -84,7 +84,7 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
             TextView wineName = viewHolder.wineTextView;
             TextView vineyardName = viewHolder.vineyardTextView;
             LinearLayout wineItemLayout = viewHolder.wineItemLayout;
-            CardView wineColor = viewHolder.wineColor;
+            ImageView wineColor = viewHolder.wineColor;
 
             if(key != null) {
                 wineName.setText(winesJSON.getJSONObject(key).getString("title"));
@@ -95,13 +95,13 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
                 String type = winesJSON.getJSONObject(key).getString("type");
                 switch (type) {
                     case "rose":
-                        wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.roseWine));
+                        wineColor.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.rosewine));
                         break;
                     case "white":
-                        wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.whiteWine));
+                        wineColor.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.whitewine));
                         break;
                     case "red":
-                        wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.redWine));
+                        wineColor.setImageDrawable(ContextCompat.getDrawable(mContext, R.drawable.redwine));
                         break;
                     default:
                         break;

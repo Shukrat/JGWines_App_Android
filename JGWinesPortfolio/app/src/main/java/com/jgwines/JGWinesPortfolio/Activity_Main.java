@@ -1,10 +1,12 @@
 package com.jgwines.JGWinesPortfolio;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 
 public class Activity_Main extends AppCompatActivity{
 
@@ -55,9 +57,28 @@ public class Activity_Main extends AppCompatActivity{
 
         Helper_JSONReader_Singleton jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.main_ViewPager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.main_ViewPager);
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(0);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                final InputMethodManager imm = (InputMethodManager)getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(viewPager.getWindowToken(), 0);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 }
