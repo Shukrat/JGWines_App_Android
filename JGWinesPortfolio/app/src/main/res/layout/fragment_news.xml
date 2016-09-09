@@ -33,7 +33,6 @@
                 android:id="@+id/rvTastings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
                 android:clipToPadding="false"/>
         </LinearLayout>
 
@@ -70,7 +69,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:nestedScrollingEnabled="false"/>
+                    />
             </android.support.v4.widget.NestedScrollView>
         </RelativeLayout>
     </LinearLayout>

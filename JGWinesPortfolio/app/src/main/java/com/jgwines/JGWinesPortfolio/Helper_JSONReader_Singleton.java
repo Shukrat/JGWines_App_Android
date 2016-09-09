@@ -1,13 +1,11 @@
 package com.jgwines.JGWinesPortfolio;
 
 import android.content.Context;
-import android.os.Environment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 

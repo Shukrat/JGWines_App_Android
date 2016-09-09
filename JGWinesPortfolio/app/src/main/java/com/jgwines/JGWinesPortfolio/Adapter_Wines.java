@@ -12,9 +12,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by Shukrat on 8/25/2016.
@@ -52,13 +53,13 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
     }
 
     private JSONObject winesJSON;
-    private JSONArray allWinesKey;
+    private ArrayList<String> winesToDisplay;
     private final Context mContext;
 
-    public Adapter_Wines(JSONObject _allWinesJSON, Context context){
+    public Adapter_Wines(JSONObject _allWinesJSON, ArrayList<String> winesToDisplay, Context context){
         mContext = context;
+        this.winesToDisplay = winesToDisplay;
         try {
-            allWinesKey = _allWinesJSON.getJSONArray("key");
             winesJSON = _allWinesJSON.getJSONObject("wines");
         } catch(JSONException e){
             e.printStackTrace();
@@ -78,32 +79,34 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
     @Override
     public void onBindViewHolder(Adapter_Wines.ViewHolder viewHolder, int position) {
         try {
-            String key = allWinesKey.getString(position);
+            String key = winesToDisplay.get(position);
 
             TextView wineName = viewHolder.wineTextView;
             TextView vineyardName = viewHolder.vineyardTextView;
             LinearLayout wineItemLayout = viewHolder.wineItemLayout;
             CardView wineColor = viewHolder.wineColor;
 
-            wineName.setText(winesJSON.getJSONObject(key).getString("title"));
-            vineyardName.setText(winesJSON.getJSONObject(key).getString("vineyard"));
-            wineItemLayout.setTag(key);
+            if(key != null) {
+                wineName.setText(winesJSON.getJSONObject(key).getString("title"));
+                vineyardName.setText(winesJSON.getJSONObject(key).getString("vineyard"));
+                wineItemLayout.setTag(key);
 
-            String type = winesJSON.getJSONObject(key).getString("type");
-            switch(type){
-                case "rose":
-                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.roseWine));
-                    break;
-                case "white":
-                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.whiteWine));
-                    break;
-                case "red":
-                    wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.redWine));
-                    break;
-                default:
-                    break;
+                // Set color of the dot next to each wine item
+                String type = winesJSON.getJSONObject(key).getString("type");
+                switch (type) {
+                    case "rose":
+                        wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.roseWine));
+                        break;
+                    case "white":
+                        wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.whiteWine));
+                        break;
+                    case "red":
+                        wineColor.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.redWine));
+                        break;
+                    default:
+                        break;
+                }
             }
-
         } catch (JSONException e){
             e.printStackTrace();
         }
@@ -111,6 +114,6 @@ public class Adapter_Wines extends RecyclerView.Adapter<Adapter_Wines.ViewHolder
 
     @Override
     public int getItemCount() {
-        return allWinesKey.length();
+        return winesToDisplay.size();
     }
 }

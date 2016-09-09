@@ -12,7 +12,6 @@ import android.widget.Toast;
  */
 public class Activity_Initial extends AppCompatActivity implements Interface_ServerFileRequestResponse{
     private final Helper_ServerFileRequest fileChecker = new Helper_ServerFileRequest(this);
-    private Helper_JSONReader_Singleton jsonReader_singleton;
 
     private Button b_enterPortfolio;
 
@@ -22,7 +21,7 @@ public class Activity_Initial extends AppCompatActivity implements Interface_Ser
         setContentView(R.layout.activity_initial);
 
         fileChecker.delegate = this;
-        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
+        Helper_JSONReader_Singleton jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
 
         fileChecker.execute("version");

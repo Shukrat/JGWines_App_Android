@@ -53,7 +53,6 @@
             android:elevation="4dp"/>
 
         <android.support.v7.widget.RecyclerView
-            android:nestedScrollingEnabled="false"
             android:id="@+id/rvWineDisplay"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />

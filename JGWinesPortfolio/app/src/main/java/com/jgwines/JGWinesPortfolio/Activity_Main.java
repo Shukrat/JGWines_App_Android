@@ -48,18 +48,15 @@ public class Activity_Main extends AppCompatActivity{
         }
     }
 
-    private Helper_JSONReader_Singleton jsonReader_singleton;
-    private PagerAdapter pagerAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
+        Helper_JSONReader_Singleton jsonReader_singleton = Helper_JSONReader_Singleton.getInstance();
         jsonReader_singleton.setContext(this);
         ViewPager viewPager = (ViewPager) findViewById(R.id.main_ViewPager);
-        pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(0);
     }
