@@ -16,20 +16,21 @@ Uses 4 fragments to shift UI content by way of ViewPager.
   -Wines in regions are RecyclerViews nested in Regions.  
    3. All Wines Fragment:  
   -All wines loaded into RecyclerView.  
+  -Can search for wines by title, vineyard, and type (red, white, rose).
    4. About JGWines:  
   -Contact info: Email lets user choose email app to send email. Phone lets user choose phone app to call.
-		
+
 ##Wine Information Activity:
 Loads image of label based on the wine selected from New Vintages, Regions, or All Wines fragments. All other content loaded from internal storage JSON file.
 
 ##Utilities:
 Helper_JSONReader_Singleton:
-- Used to load and read JSONObjects or JSONArrays from JSON files. 
-  
+- Used to load and read JSONObjects or JSONArrays from JSON files.
+
 Helper_ServerImageRequest:  
 - Used to get wine label from server when entering Wine Information Activity.  
 - If the server can't be reached, displays the JG Wines logo instead.  
-  
+
 Helper_ServerFileRequest:  
 - Used in Initial Activity to first check versions, then download all JSON files if versions mismatch.  
 - If server can't be reached, tells user via Toast, then loads previous available data on device.
